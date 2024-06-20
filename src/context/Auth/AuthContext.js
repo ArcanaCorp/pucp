@@ -21,6 +21,12 @@ export const AuthProvider = ({ children }) => {
         password: ''
     });
 
+    const [ userSign, setUserSign ] = useState({
+        name: '',
+        email: '',
+        password: ''
+    })
+
     const [ isLoading, setIsLoading ] = useState(false);
 
     const handleChangeLogin = (e) => {
@@ -30,6 +36,14 @@ export const AuthProvider = ({ children }) => {
             [name]: value
         }));
     };
+
+    const handleChangeSign = (e) => {
+        const { value, name } = e.target;
+        setUserSign(prevData => ({
+            ...prevData,
+            [name]: value
+        }));
+    }
 
     const handleLogin = async () => {
 
@@ -75,6 +89,57 @@ export const AuthProvider = ({ children }) => {
 
     }
 
+    const handleSign = async () => {
+
+        if (userSign.name === '' || userSign.email === '' || userSign.password === '') return handleMessageAlert('warning', 'Por favor completa los campos requeridos.')
+        
+        setIsLoading(true);
+
+        try {
+            
+            const formData = new FormData();
+            formData.append('name', userSign.name)
+            formData.append('email', userSign.email)
+            formData.append('password', userSign.password)
+
+            await fetch(`${API.URL}/auth/sign`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                body: new URLSearchParams(formData).toString()
+            })
+            .then((response) => response.json())
+            .then((data) => {
+                if (data.ok) {
+                    handleMessageAlert('success', data.message)
+                    Cookies.set('u_token', data.token, { expires: 365 })
+                    setIsAuth(true);
+                    const userInfo = jwtDecode(data.token)
+                    setIsUser(userInfo)
+                } else {
+                    handleMessageAlert('warning', data.message)
+                }
+            })
+            .catch((error) => {
+                handleMessageAlert('error', `Hubo un error al hacer la petición`)
+            })
+            .finally(() => {
+                setIsLoading(false)
+            })
+
+        } catch (error) {
+            handleMessageAlert('error', 'Hubo un error interno en el servidor')
+        }
+
+    }
+
+    const handleLogout = async () => {
+        handleMessageAlert('success', 'Se cerró la sesión con éxito')
+        Cookies.remove('u_token');
+        setIsAuth(false);
+    }
+
     const handleDecodedUser = useCallback(async (token) => {
         const userInfo = jwtDecode(token);
         setIsUser(userInfo)
@@ -92,7 +157,10 @@ export const AuthProvider = ({ children }) => {
         isUser,
         isLoading,
         handleChangeLogin,
-        handleLogin
+        handleChangeSign,
+        handleLogin,
+        handleSign,
+        handleLogout
     }
 
     return (

@@ -4,12 +4,14 @@ import { IconCash, IconFiles, IconHome, IconListCheck, IconLogout, IconMenu, Ico
 
 import './styles/nav.css'
 import UIContext from '../../context/UI/UIContext';
+import AuthContext from '../../context/Auth/AuthContext';
 
 function Nav() {
 
     const location = useLocation();
 
     const { handleToogleModal } = useContext(UIContext);
+    const { handleLogout } = useContext(AuthContext);
 
     return (
     
@@ -64,7 +66,7 @@ function Nav() {
             </div>
 
             <div className='__nav_foot'>
-                <button className='__btn_logout'>
+                <button className='__btn_logout' onClick={handleLogout}>
                     <span className='__btn_logout_ico'><IconLogout/></span>
                     <span className='__btn_logout_txt'>Cerrar Sesión</span>
                 </button>

@@ -50,10 +50,14 @@ function AuthLayout() {
                     <Outlet/>
 
                     <div className='__btm_lft'>
-                        {location.pathname === '/' ? (
-                            <h4>¿Aún no tienes una cuenta?. <Link to={'/sign'}>Registrate aquí</Link></h4>
-                        ) : (
-                            <h4>¿Ya tienes una cuenta?. <Link to={'/'}>Iniciar sesión</Link></h4>
+                        {location.pathname === '/' && ( <h4>¿Aún no tienes una cuenta?. <Link to={'/sign'}>Registrate aquí</Link></h4> )}
+                        {location.pathname === '/sign' && ( <h4>¿Ya tienes una cuenta?. <Link to={'/'}>Iniciar sesión</Link></h4> )}
+
+                        {location.pathname === '/recover' && (
+                            <>
+                                <h4>¿Ya tienes una cuenta?. <Link to={'/'}>Iniciar sesión</Link></h4>
+                                <h4>¿Aún no tienes una cuenta?. <Link to={'/sign'}>Registrate aquí</Link></h4>
+                            </>
                         )}
                     </div>
 

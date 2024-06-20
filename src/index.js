@@ -18,6 +18,7 @@ import HistoryView from "./view/HistoryView";
 import ErrorScreen from "./screens/ErrorScreen";
 
 import './static/css/global.css'
+import FormRecover from "./components/Auth/FormRecover";
 
 const router = createBrowserRouter([
     {
@@ -32,6 +33,10 @@ const router = createBrowserRouter([
             {
                 path: '/sign',
                 element: <FormSign/>
+            },
+            {
+                path: '/recover',
+                element: <FormRecover/>
             }
         ]
     },
