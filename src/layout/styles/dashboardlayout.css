@@ -1,0 +1,13 @@
+.__xhsy8 {
+    width: 100dvw;
+    height: 100dvh;
+    display: grid;
+    transition: .3s ease all;
+    grid-template-columns: 80px calc(100dvw - 80px);
+    grid-template-areas: "nav main";
+}
+
+.__xhsy8--active {
+    transition: .3s ease all;
+    grid-template-columns: 300px calc(100dvw - 300px);
+}

@@ -1,0 +1,82 @@
+.__form {
+    width: 100%;
+    margin: auto;
+    padding: 1rem;
+    border-radius: 10px;
+    background-color: var(--white);
+}
+
+.__form_group {
+    width: 100%;
+    margin-bottom: 1rem;
+}
+
+.__form_group label {
+    display: block;
+    font-size: .9rem;
+    font-weight: 500;
+}
+
+.__form_group .__form_control {
+    position: relative;
+    width: 100%;
+    margin: .5rem 0rem;
+}
+
+.__form_group .__form_control .__entry {
+    width: 100%;
+    height: 50px;
+    border-radius: 10px;
+}
+.__form_group .__form_control .__entry_normal {
+    padding: 0rem 1rem;
+}
+.__form_group .__form_control .__entry_pwd {
+    padding: 0em 50px 0em 1rem;
+}
+
+.__form_group .__form_control .__btn_toogle_view {
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: grid;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    place-items: center;
+}
+
+.__form_group .__a_recover {
+    font-size: .8rem;
+    font-weight: 500;
+    color: var(--primary);
+}
+
+.__form_group .__btn_login {
+    width: 100%;
+    height: 50px;
+    display: grid;
+    color: var(--white);
+    border-radius: 10px;
+    place-items: center;
+    background-color: var(--primary);
+}
+.__form_group .__btn_login .__loader {
+    width: 25px;
+    height: 25px;
+    border: 2px solid #FFF;
+    border-bottom-color: transparent;
+    border-radius: 50%;
+    display: inline-block;
+    box-sizing: border-box;
+    animation: rotation 1s linear infinite;
+}
+
+@keyframes rotation {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
