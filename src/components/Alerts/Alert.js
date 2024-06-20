@@ -11,7 +11,7 @@ function Alert({ type, message }) {
         setTimeout(() => {
             handleMessageAlert('', '')
         }, 3000)
-    }, []);
+    }, [handleMessageAlert]);
     
     return (
     
