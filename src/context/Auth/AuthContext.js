@@ -57,7 +57,7 @@ export const AuthProvider = ({ children }) => {
             formData.append('email', userLogin.email)
             formData.append('password', userLogin.password)
             
-            await fetch(`${API.URL}/auth/login`, {
+            await fetch(`${API.URL}/auth/login/`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/x-www-form-urlencoded',
@@ -102,7 +102,7 @@ export const AuthProvider = ({ children }) => {
             formData.append('email', userSign.email)
             formData.append('password', userSign.password)
 
-            await fetch(`${API.URL}/auth/sign`, {
+            await fetch(`${API.URL}/auth/sign/`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/x-www-form-urlencoded',
