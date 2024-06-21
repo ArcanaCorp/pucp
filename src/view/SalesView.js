@@ -1,9 +1,16 @@
 import React from 'react'
+import Header from './layout/Sales/Header'
 
 function SalesView() {
+
     return (
-        <div>SalesView</div>
+    
+        <>
+            <Header/>
+        </>
+    
     )
+
 }
 
 export default SalesView

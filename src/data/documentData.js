@@ -6,7 +6,8 @@ export const documents = [
         code: "abc123",
         stauts: "1",
         photo: "avatar.jpg",
-        date: "2022-01-01"
+        date: "2022-01-01",
+        type: "venta"
     },
     {
         name: "Jane",
@@ -15,7 +16,8 @@ export const documents = [
         code: "def456",
         stauts: "0",
         photo: "avatar.jpg",
-        date: "2022-01-02"
+        date: "2022-01-02",
+        type: "pedido"
     },
     {
         name: "Michael",
@@ -24,7 +26,8 @@ export const documents = [
         code: "ghi789",
         stauts: "1",
         photo: "avatar.jpg",
-        date: "2022-01-03"
+        date: "2022-01-03",
+        type: "compra"
     },
     {
         name: "Emily",
@@ -33,7 +36,8 @@ export const documents = [
         code: "jkl012",
         stauts: "0",
         photo: "avatar.jpg",
-        date: "2022-01-04"
+        date: "2022-01-04",
+        type: "cotizacion"
     },
     {
         name: "David",
@@ -42,7 +46,8 @@ export const documents = [
         code: "mno345",
         stauts: "1",
         photo: "avatar.jpg",
-        date: "2022-01-05"
+        date: "2022-01-05",
+        type: "venta"
     },
     {
         name: "Olivia",
@@ -51,7 +56,8 @@ export const documents = [
         code: "pqr678",
         stauts: "0",
         photo: "avatar.jpg",
-        date: "2022-01-06"
+        date: "2022-01-06",
+        type: "pedido"
     },
     {
         name: "Daniel",
@@ -60,7 +66,8 @@ export const documents = [
         code: "stu901",
         stauts: "1",
         photo: "avatar.jpg",
-        date: "2022-01-07"
+        date: "2022-01-07",
+        type: "compra"
     },
     {
         name: "Sophia",
@@ -69,7 +76,8 @@ export const documents = [
         code: "vwx234",
         stauts: "0",
         photo: "avatar.jpg",
-        date: "2022-01-08"
+        date: "2022-01-08",
+        type: "cotizacion"
     },
     {
         name: "Matthew",
@@ -78,7 +86,8 @@ export const documents = [
         code: "yz012",
         stauts: "1",
         photo: "avatar.jpg",
-        date: "2022-01-09"
+        date: "2022-01-09",
+        type: "venta"
     },
     {
         name: "Ava",
@@ -87,6 +96,7 @@ export const documents = [
         code: "345abc",
         stauts: "0",
         photo: "avatar.jpg",
-        date: "2022-01-10"
+        date: "2022-01-10",
+        type: "pedido"
     }
-]
+];

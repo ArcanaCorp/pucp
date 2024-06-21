@@ -1,0 +1,92 @@
+:root {
+    --danger: #df0000;
+    --danger-bg: rgb(240, 0, 0, .2);
+
+    --warning: #ceb600;
+    --warning-bg: rgba(206, 185, 0, 0.2);
+
+    --success: #3ace00;
+    --success-bg: rgb(58, 206, 0, .2);
+
+    --info: #2196f3;
+    --info-bg: rgb(33, 150, 243, .2);
+}
+
+.__table {
+    width: 100%;
+    border: 1px solid #cccccc;
+    background-color: var(--white);
+}
+
+.__table_head {
+    width: 100%;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #cccccc;
+}
+
+.__table_head .__col {
+    width: 100%;
+    display: grid;
+    height: inherit;
+    place-items: center;
+    border-right: 1px solid #cccccc;
+}
+
+.__table_head .__col_nmb {
+    width: 50px;
+    height: 50px;
+    min-width: 50px;
+}
+
+.__table_body .__row_body {
+    width: 100%;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.__table_body .__row_body_bg {
+    background-color: #F2F0F5;
+}
+
+.__table_body .__row_body .__col {
+    width: 100%;
+    display: grid;
+    height: inherit;
+    place-items: center;
+    border-right: 1px solid #cccccc;
+}
+.__table_body .__row_body .__col_nmb {
+    width: 50px;
+    min-width: 50px;
+}
+.__table_body .__row_body .__col .__txt_primary {
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--dark);
+}
+.__table_body .__row_body .__col .__txt_secondary {
+    font-size: .8rem;
+    color: #888888;
+}
+
+.__table_body .__row_body .__col .__badge_status {
+    display: block;
+    padding: .2rem;
+    font-size: .8rem;
+    border-radius: .2rem;
+}
+.__table_body .__row_body .__col .__badge_status_success {
+    color: var(--success);
+    border: 2px solid var(--success);
+    background-color: var(--success-bg);
+}
+.__table_body .__row_body .__col .__badge_status_warning {
+    color: var(--warning);
+    border: 2px solid var(--warning);
+    background-color: var(--warning-bg);
+}

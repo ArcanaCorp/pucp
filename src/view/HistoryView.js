@@ -1,9 +1,16 @@
 import React from 'react'
+import Header from './layout/History/Header'
 
 function HistoryView() {
+
     return (
-        <div>HistoryView</div>
+    
+        <>
+            <Header/>
+        </>
+    
     )
+
 }
 
 export default HistoryView

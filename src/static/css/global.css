@@ -31,6 +31,8 @@ body {
 
 input, select, textarea {
     outline: none;
+    background: none;
+    border-radius: inherit;
     font-family: var(--font-family);
 }
 

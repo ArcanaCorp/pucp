@@ -9,6 +9,13 @@ export const UIProvider = ({ children }) => {
         message: ''
     })
 
+    const [ isViewModal, setIsViewModal ] = useState({
+        modal: '',
+        id: ''
+    })
+
+    const handleViewModal = (modal, id) => setIsViewModal({ modal: modal, id: id})
+
     const handleToogleModal = () => {
         const documentMenu = document.getElementById('root')
         documentMenu.classList.toggle('__xhsy8--active')
@@ -18,7 +25,9 @@ export const UIProvider = ({ children }) => {
     const contextValue = {
         handleToogleModal,
         isMessagesAlert,
-        handleMessageAlert
+        handleMessageAlert,
+        isViewModal,
+        handleViewModal
     }
 
     return (

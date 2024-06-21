@@ -1,0 +1,7 @@
+.__main_order_view {
+    width: 100%;
+    padding: 1rem 2rem;
+    height: calc(100dvh - 100px);
+    overflow-y: auto;
+    overflow-x: hidden;
+}
