@@ -90,3 +90,8 @@
     border: 2px solid var(--warning);
     background-color: var(--warning-bg);
 }
+.__table_body .__row_body .__col .__badge_status_info {
+    color: var(--info);
+    border: 2px solid var(--info);
+    background-color: var(--info-bg);
+}

@@ -74,15 +74,15 @@ function ModalOrders() {
 
                                 <div className='__form_flex'>
                                     <div>
-                                        <label htmlFor='name'>Responsable</label>
+                                        <label htmlFor='name'>Tipo</label>
                                         <div className='__form_control'>
-                                            <input type='text' className='__entry' name='name' id='name' value={isUser.name} placeholder='Nombre del encargado' readOnly />
+                                            <input type='text' className='__entry' name='name' id='name' value={'Pedido'} placeholder='Nombre del encargado' readOnly />
                                         </div>
                                     </div>
                                     <div>
-                                        <label htmlFor='name'>Responsable</label>
+                                        <label htmlFor='name'>Código</label>
                                         <div className='__form_control'>
-                                            <input type='text' className='__entry' name='name' id='name' value={isUser.name} placeholder='Nombre del encargado' readOnly />
+                                            <input type='text' className='__entry' name='name' id='name' value={info.code} placeholder='Nombre del encargado' readOnly />
                                         </div>
                                     </div>
                                 

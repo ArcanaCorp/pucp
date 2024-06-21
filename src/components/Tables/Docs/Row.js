@@ -1,8 +1,8 @@
 import React, { useContext } from 'react'
 import AuthContext from '../../../context/Auth/AuthContext';
 
-function Row({ number, name, lastname, email, tipo, status, date }) {
-    
+function Row({ number, name, lastname, email, tipo, status, date, view }) {
+
     const { isUser } = useContext(AuthContext);
 
     return (
@@ -22,7 +22,6 @@ function Row({ number, name, lastname, email, tipo, status, date }) {
                     <p className='__txt_primary'>{date}</p>
                     <p className='__txt_secondary'>Agregado por <b>{isUser.name}</b></p>
                 </div>
-                <div className='__col'></div>
             </div>
         </>
     

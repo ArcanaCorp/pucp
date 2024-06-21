@@ -19,6 +19,7 @@ import ErrorScreen from "./screens/ErrorScreen";
 
 import './static/css/global.css'
 import FormRecover from "./components/Auth/FormRecover";
+import { FilterProvider } from "./context/Filter/FilterContext";
 
 const router = createBrowserRouter([
     {
@@ -80,8 +81,12 @@ root.render(
     <UIProvider>
 
         <AuthProvider>
+            
+            <FilterProvider>
     
-            <RouterProvider router={router} />
+                <RouterProvider router={router} />
+            
+            </FilterProvider>
     
         </AuthProvider>
     
