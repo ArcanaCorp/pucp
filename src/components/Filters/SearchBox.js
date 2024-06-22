@@ -17,6 +17,7 @@ function SearchBox({ placeholder }) {
             params.set('search', searchValue); // Añade el parámetro 'query' con el valor de búsqueda
         } else {
             params.delete('search'); // Elimina el parámetro 'query' si el valor de búsqueda está vacío
+            handleFilterSearch('')
         }
     
         // Actualiza la URL con los nuevos parámetros

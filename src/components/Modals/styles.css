@@ -12,3 +12,23 @@
 .__modal {
     background-color: var(--white);
 }
+
+.__modal_foot {
+    width: 100%;
+    display: flex;
+    padding: 1rem;gap: 1rem;
+    justify-content: flex-end;
+}
+.__modal_foot .__btn_clos {
+    border-radius: 100px;
+    padding: .8rem 1.5rem;
+    border: 1px solid #ccc;
+}
+
+.__modal_foot .__btn_prim {
+    font-weight: 500;
+    color: var(--white);
+    border-radius: 100px;
+    padding: .8rem 1.5rem;
+    background-color: var(--primary);   
+}
