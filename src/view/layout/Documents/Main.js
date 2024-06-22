@@ -10,7 +10,7 @@ function Main() {
     
         <div className='__main_doc_view'>
 
-            <FilterBar/>
+            <FilterBar place={'doc'} />
 
             <Table/>
 

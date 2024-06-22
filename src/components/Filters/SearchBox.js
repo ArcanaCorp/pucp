@@ -1,16 +1,16 @@
 import { IconSearch } from '@tabler/icons-react'
-import React, { useContext } from 'react'
+import React, { useContext, useEffect } from 'react'
 
 import './filts.css'
 import FilterContext from '../../context/Filter/FilterContext'
 
-function SearchBox({ placeholder }) {
+function SearchBox({ place, placeholder }) {
 
     const { handleFilterSearch } = useContext(FilterContext);
 
     const handleSearching = (e) => {
         const searchValue = e.target.value.trim();
-        handleFilterSearch(searchValue)
+        handleFilterSearch(searchValue, place)
         const params = new URLSearchParams(window.location.search);
     
         if (searchValue) {
@@ -23,7 +23,6 @@ function SearchBox({ placeholder }) {
         // Actualiza la URL con los nuevos parámetros
         window.history.replaceState({}, '', `${window.location.pathname}?${params.toString()}`);
     }
-    
 
     return (
        

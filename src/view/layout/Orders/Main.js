@@ -9,9 +9,11 @@ function Main() {
     return (
     
         <div className='__main_order_view'>
-            <FilterBar/>
+
+            <FilterBar place={'orders'} />
             
             <Table/>
+            
         </div>
     
     )

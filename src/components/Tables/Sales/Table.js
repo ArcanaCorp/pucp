@@ -1,18 +1,17 @@
 import React, { useContext, useEffect, useState } from 'react'
-import Row from './Row'
-
-import { cotizaciones } from "../../../data/cotizacionData";
+import { transacciones } from "../../../data/transaccionesData";
+import Row from './Row';
 import FilterContext from '../../../context/Filter/FilterContext';
 
 function Table() {
 
     const { searchFilter } = useContext(FilterContext);
 
-    const [ filteredQuotes, setFilteredQuotes ] = useState([]);
+    const [ filteredSales, setFilteredSales ] = useState([]);
 
     useEffect(() => {
-        if (searchFilter.table === 'quotes') {
-            const filter = cotizaciones.filter((odr) => {
+        if (searchFilter.table === 'sales') {
+            const filter = transacciones.filter((odr) => {
                 return (
                     odr.company.name.toLocaleLowerCase().includes(searchFilter.query) ||
                     odr.company.ruc20.toLocaleLowerCase().includes(searchFilter.query) ||
@@ -20,32 +19,30 @@ function Table() {
                     odr.company.direccion.toLocaleLowerCase().includes(searchFilter.query)
                 );
             })
-            setFilteredQuotes(filter);   
+            setFilteredSales(filter);   
         } else {
-            setFilteredQuotes(cotizaciones)
+            setFilteredSales(transacciones)
         }
     }, [searchFilter])
-
+    
     return (
     
         <div className='__table'>
-
             <div className='__table_head'>
                 <div className='__col __col_nmb'>N°</div>
                 <div className='__col'>Razón social</div>
                 <div className='__col'>RUC</div>
                 <div className='__col'>Contacto</div>
                 <div className='__col'>Dirección</div>
+                <div className='__col'>Tipo</div>
+                <div className='__col'>Total</div>
                 <div className='__col'>Fecha</div>
-                <div className='__col'>Cotizacion</div>
-                <div className='__col'>Detalles</div>
             </div>
             <div className='__table_body'>
-                {filteredQuotes.map((quote, iq) => (
-                    <Row key={iq} number={iq+1} code={quote.code} company={quote.company} date={quote.date} price={quote.price} />
+                {filteredSales.map((trcc, itrcc) => (
+                    <Row key={itrcc} number={itrcc + 1} company={trcc.company} tipo={trcc.tipo} price={trcc.montoTotal} date={trcc.fecha} />
                 ))}
             </div>
-
         </div>
     
     )

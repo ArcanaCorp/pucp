@@ -95,3 +95,8 @@
     border: 2px solid var(--info);
     background-color: var(--info-bg);
 }
+.__table_body .__row_body .__col .__badge_status_error {
+    color: var(--danger);
+    border: 2px solid var(--danger);
+    background-color: var(--danger-bg);
+}

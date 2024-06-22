@@ -13,10 +13,14 @@ function Table() {
     const [ filteredDocuments, setFilteredDocuments ] = useState([]);
 
     useEffect(() => {
-        const filter = documents.filter((doc) => {
-            return doc.name.toLocaleLowerCase().includes(searchFilter)
-        })
-        setFilteredDocuments(filter);
+        if (searchFilter.table === 'doc') {
+            const filter = documents.filter((doc) => {
+                return doc.name.toLocaleLowerCase().includes(searchFilter.query)
+            })
+            setFilteredDocuments(filter);
+        } else {
+            setFilteredDocuments(documents)
+        }
     }, [searchFilter])
 
     return (

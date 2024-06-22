@@ -6,14 +6,20 @@ export const FilterProvider = ({ children }) => {
 
     const searchParams = useMemo(() => new URLSearchParams(window.location.search), []);
 
-    const [searchFilter, setSearchFilter] = useState(searchParams.get('search') || '');
+    const [searchFilter, setSearchFilter] = useState({
+        query: searchParams.get('search') || '',
+        table: ''
+    });
     const [ statusFilter, setStatusFilter] = useState('');
 
-    const handleFilterSearch = (value) => setSearchFilter(value);
+    const handleFilterSearch = (value, table) => setSearchFilter({ query: value, table: table});
     const handleFilterStatus = (value) => setStatusFilter(value);
 
     useEffect(() => {
-        setSearchFilter(searchParams.get('search') || '');
+        setSearchFilter(prev => ({
+            ...prev,
+            query: searchParams.get('search') || ''
+        }));
     }, [searchParams]);
 
     const contextValue = {

@@ -3,13 +3,13 @@ import './filts.css'
 import SearchBox from './SearchBox'
 import Selects from './Selects'
 
-function FilterBar() {
+function FilterBar({ place }) {
     
     return (
     
         <div className='__filter_bar'>
             <Selects types={true} />
-            <SearchBox placeholder={'Buscar'} />
+            <SearchBox place={place} placeholder={'Buscar'} />
         </div>
     
     )

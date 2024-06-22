@@ -10,7 +10,7 @@ function Main() {
     return (
     
         <div className='__main_quotes_view'>
-            <FilterBar/>
+            <FilterBar place={'quotes'} />
             <Table/>
         </div>
     
