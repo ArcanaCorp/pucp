@@ -1,5 +1,5 @@
 import { IconSearch } from '@tabler/icons-react'
-import React, { useContext, useEffect } from 'react'
+import React, { useContext } from 'react'
 
 import './filts.css'
 import FilterContext from '../../context/Filter/FilterContext'
