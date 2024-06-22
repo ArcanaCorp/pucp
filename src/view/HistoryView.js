@@ -1,5 +1,6 @@
 import React from 'react'
 import Header from './layout/History/Header'
+import Main from './layout/History/Main'
 
 function HistoryView() {
 
@@ -7,6 +8,7 @@ function HistoryView() {
     
         <>
             <Header/>
+            <Main/>
         </>
     
     )

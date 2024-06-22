@@ -9,7 +9,7 @@ function Main() {
     return (
     
         <div className='__main_quotes_view'>
-            <FilterBar place={'sales'} />
+            <FilterBar place={'sales'} selectDate={true} selectType={false} selectSales={true} />
             <Table/>
         </div>
     
