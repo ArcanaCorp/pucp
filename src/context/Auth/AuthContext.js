@@ -51,40 +51,36 @@ export const AuthProvider = ({ children }) => {
         
         setIsLoading(true);
 
-        try {
+        const data = new FormData();
+        data.append('email', userLogin.email)
+        data.append('password', userLogin.password)
 
-            const formData = new FormData();
-            formData.append('email', userLogin.email)
-            formData.append('password', userLogin.password)
+        try {
             
-            await fetch(`${API.URL}/auth/login/`, {
+            const response = await fetch(`${API.URL}/auth/login`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/x-www-form-urlencoded',
                 },
-                body: new URLSearchParams(formData).toString()
-            })
-            .then((response) => response.json())
-            .then((data) => {
-                if (data.ok) {
-                    handleMessageAlert('success', data.message)
-                    Cookies.set('u_token', data.token, { expires: 365 })
-                    setIsAuth(true);
-                    const userInfo = jwtDecode(data.token)
-                    setIsUser(userInfo)
-                } else {
-                    handleMessageAlert('warning', data.message)
-                }
-            })
-            .catch((error) => {
-                handleMessageAlert('error', `Hubo un error al hacer la petición`)
-            })
-            .finally(() => {
-                setIsLoading(false)
-            })
+                body: new URLSearchParams(data).toString()
+            });
+
+            const result = await response.json();
+
+            if (!result.ok) {
+                handleMessageAlert(result.status, result.message)
+                setIsLoading(false);
+            }
+
+            handleMessageAlert(result.status, result.message)
+            Cookies.set('u_token', result.token, { expires: 365 })
+            setIsAuth(true);
+            const userInfo = jwtDecode(result.token)
+            setIsUser(userInfo)
 
         } catch (error) {
             handleMessageAlert('error', 'Hubo un error interno en el servidor')
+            setIsLoading(false);
         }
 
     }

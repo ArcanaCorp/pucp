@@ -8,12 +8,27 @@ export const FilterProvider = ({ children }) => {
 
     const [searchFilter, setSearchFilter] = useState({
         query: searchParams.get('search') || '',
+        year: '',
+        month: '',
+        tipo: '',
         table: ''
     });
-    const [ statusFilter, setStatusFilter] = useState('');
 
     const handleFilterSearch = (value, table) => setSearchFilter({ query: value, table: table});
-    const handleFilterStatus = (value) => setStatusFilter(value);
+    const handleFilters = (table, value, filter) => {
+        if (searchFilter.table !== '') {
+            setSearchFilter(prev => ({
+                ...prev,
+                [filter]: value
+            }))
+        } else {
+            setSearchFilter(prev => ({
+                ...prev,
+                [table]: table,
+                [filter]: value
+            }))
+        }
+    }
 
     useEffect(() => {
         setSearchFilter(prev => ({
@@ -24,9 +39,8 @@ export const FilterProvider = ({ children }) => {
 
     const contextValue = {
         searchFilter,
-        handleFilterSearch,
-        statusFilter,
-        handleFilterStatus
+        handleFilters,
+        handleFilterSearch
     };
 
     return (

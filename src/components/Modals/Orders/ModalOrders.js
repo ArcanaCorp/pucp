@@ -125,15 +125,7 @@ function ModalOrders() {
                                 <h5>Camisa cuello V</h5>
                                 <div>
                                     <p>Cantidad</p>
-                                    <select className='__select'>
-                                        <option>12</option>
-                                        <option>24</option>
-                                        <option>36</option>
-                                        <option>48</option>
-                                        <option>52</option>
-                                        <option>64</option>
-                                        <option>76</option>
-                                    </select>
+                                    <input type='text' className='__select' placeholder='Ingresar talla' />
                                 </div>
                             </div>
                         </div>
@@ -142,18 +134,10 @@ function ModalOrders() {
                                 <img src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSyYNeMag2jU8bW6K_WOSio9Qe0AMQLLSiUdQ&s' alt={`Pantalon para ${info.company.name}`} />
                             </div>
                             <div className='__product_txt'>
-                                <h5>Camisa cuello V</h5>
+                                <h5>Chompa corte princesa</h5>
                                 <div>
                                     <p>Cantidad</p>
-                                    <select className='__select'>
-                                        <option>12</option>
-                                        <option>24</option>
-                                        <option>36</option>
-                                        <option>48</option>
-                                        <option>52</option>
-                                        <option>64</option>
-                                        <option>76</option>
-                                    </select>
+                                    <input type='text' className='__select' placeholder='Ingresar talla' />
                                 </div>
                             </div>
                         </div>
@@ -162,18 +146,10 @@ function ModalOrders() {
                                 <img src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSQGkGd-YBHM5RBwquJh_04X5fTSeMmaoZt5w&s' alt={`Pantalon para ${info.company.name}`} />
                             </div>
                             <div className='__product_txt'>
-                                <h5>Camisa cuello V</h5>
+                                <h5>Pantalon sastre</h5>
                                 <div>
                                     <p>Cantidad</p>
-                                    <select className='__select'>
-                                        <option>12</option>
-                                        <option>24</option>
-                                        <option>36</option>
-                                        <option>48</option>
-                                        <option>52</option>
-                                        <option>64</option>
-                                        <option>76</option>
-                                    </select>
+                                    <input type='text' className='__select' placeholder='Ingresar talla' />
                                 </div>
                             </div>
                         </div>
@@ -182,18 +158,10 @@ function ModalOrders() {
                                 <img src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSNSrcHdvuB5p3GY4S74owrZnxtO1kcTplYaA&s' alt={`Falda para ${info.company.name}`} />
                             </div>
                             <div className='__product_txt'>
-                                <h5>Camisa cuello V</h5>
+                                <h5>Falda plisada</h5>
                                 <div>
                                     <p>Cantidad</p>
-                                    <select className='__select'>
-                                        <option>12</option>
-                                        <option>24</option>
-                                        <option>36</option>
-                                        <option>48</option>
-                                        <option>52</option>
-                                        <option>64</option>
-                                        <option>76</option>
-                                    </select>
+                                    <input type='text' className='__select' placeholder='Ingresar talla' />
                                 </div>
                             </div>
                         </div>

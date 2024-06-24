@@ -6,7 +6,8 @@ export const UIProvider = ({ children }) => {
 
     const [ isMessagesAlert, setIsMessageAlert ] = useState({
         type: '',
-        message: ''
+        message: '',
+        style: ''
     })
 
     const [ isViewModal, setIsViewModal ] = useState({
@@ -20,7 +21,7 @@ export const UIProvider = ({ children }) => {
         const documentMenu = document.getElementById('root')
         documentMenu.classList.toggle('__xhsy8--active')
     }
-    const handleMessageAlert = (type, message) => setIsMessageAlert({ type: type, message: message })
+    const handleMessageAlert = (type, message, style) => setIsMessageAlert({ type: type, message: message, style: style })
 
     const contextValue = {
         handleToogleModal,

@@ -1,6 +1,6 @@
 import React from 'react'
 import FilterBar from '../../../components/Filters/FilterBar'
-import Table from '../../../components/Tables/Orders/Table'
+import Table from '../../../components/Tables/Sales/Table'
 
 import './styles/main.css'
 

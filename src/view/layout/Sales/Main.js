@@ -1,5 +1,5 @@
 import React from 'react'
-import Table from '../../../components/Tables/Sales/Table'
+import Table from '../../../components/Tables/Orders/Table'
 import FilterBar from '../../../components/Filters/FilterBar'
 
 import './styles/main.css'

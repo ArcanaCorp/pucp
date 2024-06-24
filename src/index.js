@@ -4,6 +4,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 import { UIProvider } from "./context/UI/UIContext";
 import { AuthProvider } from "./context/Auth/AuthContext";
+import { FilterProvider } from "./context/Filter/FilterContext";
 
 import AuthLayout from "./layout/AuthLayout";
 import FormLogin from "./components/Auth/FormLogin";
@@ -19,7 +20,7 @@ import ErrorScreen from "./screens/ErrorScreen";
 
 import './static/css/global.css'
 import FormRecover from "./components/Auth/FormRecover";
-import { FilterProvider } from "./context/Filter/FilterContext";
+import { DBProvider } from "./context/Data/DBContext";
 
 const router = createBrowserRouter([
     {
@@ -81,12 +82,16 @@ root.render(
     <UIProvider>
 
         <AuthProvider>
+
+            <DBProvider>
             
-            <FilterProvider>
-    
-                <RouterProvider router={router} />
+                <FilterProvider>
+        
+                    <RouterProvider router={router} />
+                
+                </FilterProvider>
             
-            </FilterProvider>
+            </DBProvider>
     
         </AuthProvider>
     

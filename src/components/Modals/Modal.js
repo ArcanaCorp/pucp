@@ -1,4 +1,6 @@
 import React from 'react'
+
+import ModalClient from './Clients/ModalClient'
 import ModalDoc from './Docs/ModalDoc'
 import ModalOrders from './Orders/ModalOrders'
 import ModalQuotes from './Quotes/ModalQuotes'
@@ -11,9 +13,10 @@ function Modal({ type }) {
     
         <div className='__overlay'>
 
-            {type === 'docs' && ( <ModalDoc/> )}
+            {type === 'client' && ( <ModalClient/> )}
             {type === 'orders' && ( <ModalOrders/> )}
             {type === 'quotes' && ( <ModalQuotes/> )}
+            {type === 'docs' && ( <ModalDoc/> )}
 
         </div>
     

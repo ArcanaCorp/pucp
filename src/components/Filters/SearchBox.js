@@ -10,7 +10,8 @@ function SearchBox({ place, placeholder }) {
 
     const handleSearching = (e) => {
         const searchValue = e.target.value.trim();
-        handleFilterSearch(searchValue, place)
+        const toLowerCaseValue = searchValue.toLowerCase();
+        handleFilterSearch(toLowerCaseValue, place)
         const params = new URLSearchParams(window.location.search);
     
         if (searchValue) {

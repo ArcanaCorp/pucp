@@ -1,14 +1,19 @@
 import React, { useContext, useEffect } from 'react'
 import { Outlet, useNavigate } from 'react-router-dom';
+
+import UIContext from '../context/UI/UIContext';
 import AuthContext from '../context/Auth/AuthContext'
 
-import './styles/dashboardlayout.css'
 import Nav from '../components/layout/Nav';
 import Main from '../components/layout/Main';
+import Alert from '../components/Alerts/Alert'
+
+import './styles/dashboardlayout.css'
 
 function DashboardLayout() {
 
     const navigate = useNavigate();
+    const { isMessagesAlert } = useContext(UIContext);
     const { isAuth } = useContext(AuthContext);
 
     const toogleDesign = () => {
@@ -38,6 +43,8 @@ function DashboardLayout() {
             <Main>
                 <Outlet/>
             </Main>
+
+            {isMessagesAlert.message !== '' && ( <Alert type={isMessagesAlert.type} message={isMessagesAlert.message} bg={isMessagesAlert.style} /> )}
 
         </>
     

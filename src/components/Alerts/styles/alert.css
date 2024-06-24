@@ -17,6 +17,7 @@
     top: 20px;
     right: 20px;
     padding: 1rem;
+    z-index: 10001;
     font-size: .9rem;
     border-radius: 10px;
 }
@@ -43,4 +44,26 @@
     color: var(--info);
     border: 2px solid var(--info);
     background-color: var(--info-bg);
+}
+
+
+
+.__alert_bg_error {
+    color: var(--white);
+    background-color: var(--danger);
+}
+
+.__alert_bg_warning {
+    color: var(--white);
+    background-color: var(--warning);
+}
+
+.__alert_bg_success {
+    color: var(--white);
+    background-color: var(--success);
+}
+
+.__alert_bg_info {
+    color: var(--white);
+    background-color: var(--info);
 }

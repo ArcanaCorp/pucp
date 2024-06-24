@@ -34,10 +34,8 @@ function Table() {
                 <div className='__col __col_nmb'>N°</div>
                 <div className='__col'>Razón social</div>
                 <div className='__col'>RUC</div>
-                <div className='__col'>Contacto</div>
-                <div className='__col'>Dirección</div>
+                <div className='__col'>Cotización</div>
                 <div className='__col'>Fecha</div>
-                <div className='__col'>Cotizacion</div>
                 <div className='__col'>Detalles</div>
             </div>
             <div className='__table_body'>

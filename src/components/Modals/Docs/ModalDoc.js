@@ -13,7 +13,6 @@ function ModalDoc() {
             <div className='__modal_body'><CreateDoc/></div>
             <div className='__modal_foot'>
                 <button className='__btn_clos' onClick={() => handleViewModal('', '')}>Cerrar</button>
-                <button className='__btn_prim' onClick={() => handleViewModal('', '')}>Guardar</button>
             </div>
         </div>
     

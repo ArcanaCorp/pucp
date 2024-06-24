@@ -1,10 +1,12 @@
 import { IconFileSearch } from '@tabler/icons-react';
 import React, { useContext } from 'react'
 import UIContext from '../../../context/UI/UIContext';
+import moment from 'moment';
 
 function Row({ number, id, company, date, status }) {
 
     const { handleViewModal } = useContext(UIContext);
+    const formatedDate = moment(date).format('DD / MM / YYYY')
 
     const statusTextMap = {
         '1': 'En proceso',
@@ -26,7 +28,7 @@ function Row({ number, id, company, date, status }) {
         <div className={`__row_body ${number % 2 === 0 ? '__row_body_bg' : ''}`}>
             <div className='__col __col_nmb'>{number}</div>
             <div className='__col __col_A'>{company}</div>
-            <div className='__col __col_A'>{date}</div>
+            <div className='__col __col_A'>{formatedDate}</div>
             <div className='__col __col_A'>
                 <span className={`__badge_status __badge_status_${txtClases}`}>{txtStatus}</span>
             </div>

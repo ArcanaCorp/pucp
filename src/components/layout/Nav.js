@@ -1,6 +1,6 @@
 import React, { useContext } from 'react'
 import { Link, useLocation } from 'react-router-dom'
-import { IconCash, IconFiles, IconHome, IconListCheck, IconLogout, IconMenu, IconShoppingCart, IconUsersGroup } from '@tabler/icons-react'
+import { IconCash, IconFiles, IconHome, IconListCheck, IconLogout, IconMenu, IconShoppingCart } from '@tabler/icons-react'
 
 import './styles/nav.css'
 import UIContext from '../../context/UI/UIContext';
@@ -32,16 +32,16 @@ function Nav() {
                             <span className='__txt_item'>Inicio</span>
                         </Link>
                     </li>
-                    <li className={`__item ${location.pathname === '/dashboard/documents' ? '__item--active' : ''}`}>
-                        <Link to={'/dashboard/documents'} className='__a_item'>
-                            <span className='__ico_item'><IconFiles/></span>
-                            <span className='__txt_item'>Documentos</span>
+                    <li className={`__item ${location.pathname === '/dashboard/sales' ? '__item--active' : ''}`}>
+                        <Link to={'/dashboard/sales'} className='__a_item'>
+                            <span className='__ico_item'><IconShoppingCart/></span>
+                            <span className='__txt_item'>Ventas</span>
                         </Link>
                     </li>
                     <li className={`__item ${location.pathname === '/dashboard/orders' ? '__item--active' : ''}`}>
                         <Link to={'/dashboard/orders'} className='__a_item'>
                             <span className='__ico_item'><IconListCheck/></span>
-                            <span className='__txt_item'>Pedidos en proceso</span>
+                            <span className='__txt_item'>Compras</span>
                         </Link>
                     </li>
                     <li className={`__item ${location.pathname === '/dashboard/quotes' ? '__item--active' : ''}`}>
@@ -50,16 +50,10 @@ function Nav() {
                             <span className='__txt_item'>Cotizaciones</span>
                         </Link>
                     </li>
-                    <li className={`__item ${location.pathname === '/dashboard/sales' ? '__item--active' : ''}`}>
-                        <Link to={'/dashboard/sales'} className='__a_item'>
-                            <span className='__ico_item'><IconShoppingCart/></span>
-                            <span className='__txt_item'>Compra y venta</span>
-                        </Link>
-                    </li>
-                    <li className={`__item ${location.pathname === '/dashboard/history' ? '__item--active' : ''}`}>
-                        <Link to={'/dashboard/history'} className='__a_item'>
-                            <span className='__ico_item'><IconUsersGroup/></span>
-                            <span className='__txt_item'>Historial de clientes</span>
+                    <li className={`__item ${location.pathname === '/dashboard/documents' ? '__item--active' : ''}`}>
+                        <Link to={'/dashboard/documents'} className='__a_item'>
+                            <span className='__ico_item'><IconFiles/></span>
+                            <span className='__txt_item'>Documentos</span>
                         </Link>
                     </li>
                 </ul>

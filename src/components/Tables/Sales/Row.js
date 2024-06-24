@@ -1,6 +1,10 @@
+import { IconFileSearch } from '@tabler/icons-react'
+import moment from 'moment'
 import React from 'react'
 
-function Row({ number, company, tipo, price, date }) {
+function Row({ number, company, price, date }) {
+
+    const formattedDate = moment(date).format('DD / MM / YYYY')
     
     return (
     
@@ -8,13 +12,11 @@ function Row({ number, company, tipo, price, date }) {
             <div className='__col __col_nmb'>{number}</div>
             <div className='__col __col_A'>{company.name}</div>
             <div className='__col __col_A'>{company.ruc20}</div>
-            <div className='__col __col_A'>{company.contacto}</div>
-            <div className='__col __col_A'>{company.direccion}</div>
-            <div className='__col __col_A'>
-                <span className={`__badge_status __badge_status_${tipo === 'venta' ? 'success' : 'error'}`} style={{textTransform: 'uppercase'}}>{tipo}</span>
-            </div>
             <div className='__col __col_A'>s/. {price}</div>
-            <div className='__col __col_A'>{date}</div>
+            <div className='__col __col_A'>{formattedDate}</div>
+            <div className='__col __col_A'>
+                <button><IconFileSearch/></button>
+            </div>
         </div>
     
     )

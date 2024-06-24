@@ -6,7 +6,10 @@ function Header() {
     return (
     
         <div className='__header_orders_view'>
-            <h1>Pedidos en proceso</h1>
+            <h1>Compras</h1>
+            <div className='__filters'>
+                <button className='__btn_add'>Nueva compra</button>
+            </div>
         </div>
     
     )

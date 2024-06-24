@@ -30,17 +30,15 @@ function Table() {
         <div className='__table'>
             <div className='__table_head'>
                 <div className='__col __col_nmb'>N°</div>
-                <div className='__col'>Razón social</div>
+                <div className='__col'>Proveedor</div>
                 <div className='__col'>RUC</div>
-                <div className='__col'>Contacto</div>
-                <div className='__col'>Dirección</div>
-                <div className='__col'>Tipo</div>
                 <div className='__col'>Total</div>
                 <div className='__col'>Fecha</div>
+                <div className='__col'>Detalles</div>
             </div>
             <div className='__table_body'>
                 {filteredSales.map((trcc, itrcc) => (
-                    <Row key={itrcc} number={itrcc + 1} company={trcc.company} tipo={trcc.tipo} price={trcc.montoTotal} date={trcc.fecha} />
+                    <Row key={itrcc} number={itrcc + 1} company={trcc.company} price={trcc.montoTotal} date={trcc.fecha} />
                 ))}
             </div>
         </div>

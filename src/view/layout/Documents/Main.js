@@ -10,7 +10,7 @@ function Main() {
     
         <div className='__main_doc_view'>
 
-            <FilterBar place={'doc'} selectDate={true} selectType={true} selectSales={false} selectDocs={true} />
+            <FilterBar place={'doc'} selectDate={true} selectType={false} selectSales={false} selectDocs={true} />
 
             <Table/>
 
