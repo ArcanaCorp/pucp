@@ -22,7 +22,7 @@ function Table() {
                 const query = searchFilter.query;
                 filteredDocs = filteredDocs.filter((doc) => {
                     const clientName = doc.client?.name === '' ? '' : doc.client.name;
-                    clientName.toLowerCase().includes(query)
+                    return clientName.toLowerCase().includes(query)
                 })
             }
     
