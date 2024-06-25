@@ -34,13 +34,13 @@ function Nav() {
                     </li>
                     <li className={`__item ${location.pathname === '/dashboard/sales' ? '__item--active' : ''}`}>
                         <Link to={'/dashboard/sales'} className='__a_item'>
-                            <span className='__ico_item'><IconShoppingCart/></span>
+                            <span className='__ico_item'><IconListCheck/></span>
                             <span className='__txt_item'>Ventas</span>
                         </Link>
                     </li>
                     <li className={`__item ${location.pathname === '/dashboard/orders' ? '__item--active' : ''}`}>
                         <Link to={'/dashboard/orders'} className='__a_item'>
-                            <span className='__ico_item'><IconListCheck/></span>
+                            <span className='__ico_item'><IconShoppingCart/></span>
                             <span className='__txt_item'>Compras</span>
                         </Link>
                     </li>
