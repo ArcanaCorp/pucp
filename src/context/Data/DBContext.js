@@ -67,7 +67,7 @@ export const DBProvider = ({ children }) => {
             console.log(`Failed to fetch: ${error}`);
         }
 
-    })
+    }, [])
 
     const handleGetDocs = useCallback(async () => {
 
