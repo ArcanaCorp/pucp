@@ -15,9 +15,9 @@ function Header() {
             <AvatarProfile/>
             <div className='__actions_shorts'>
                 <button className='__btn_actions' onClick={() => handleViewModal('client', 0)}>Nuevo Cliente</button>
-                <button className='__btn_actions'>Nueva Venta</button>
-                <button className='__btn_actions'>Nueva Compra</button>
-                <button className='__btn_actions'>Nueva Cotización</button>
+                <button className='__btn_actions' onClick={() => handleViewModal('ventas', 0)}>Nueva Venta</button>
+                <button className='__btn_actions' onClick={() => handleViewModal('corders', 0)}>Nueva Compra</button>
+                <button className='__btn_actions' onClick={() => handleViewModal('aquotes', 0)}>Nueva Cotización</button>
                 <button className='__btn_actions' onClick={() => handleViewModal('docs', 0)}>Nuevo Documento</button>
             </div>
         </div>

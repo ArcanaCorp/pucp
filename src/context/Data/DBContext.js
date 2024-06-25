@@ -8,6 +8,7 @@ export const DBProvider = ({ children }) => {
 
     const [ shortCuts, setShortCuts ] = useState([]);
     const [ clients, setClients ] = useState([]);
+    const [ products, setProducts ] = useState([]);
     const [ docs, setDocs ] = useState([]);
 
     const handleGetShortcuts = async () => {
@@ -52,6 +53,22 @@ export const DBProvider = ({ children }) => {
         }
     }, [])
 
+    const handleGetProducts = useCallback( async () => {
+
+        try {
+            
+            const response = await fetch(`${API.URL}/panel/sales/product`)
+            const data = await response.json();
+            if (data.ok) {
+                setProducts(data.products)
+            }
+
+        } catch (error) {
+            console.log(`Failed to fetch: ${error}`);
+        }
+
+    })
+
     const handleGetDocs = useCallback(async () => {
 
         try {
@@ -75,6 +92,12 @@ export const DBProvider = ({ children }) => {
     }, [ clients, handleGetClients ])
 
     useEffect(() => {
+        if (products.length === 0) {
+            handleGetProducts();
+        }
+    }, [products, handleGetProducts])
+
+    useEffect(() => {
         if (docs.length === 0) {
             handleGetDocs();            
         }
@@ -83,6 +106,7 @@ export const DBProvider = ({ children }) => {
     const contextValue = {
         shortCuts, handleGetShortcuts,
         clients, handleGetClients,
+        products, handleGetProducts,
         docs, handleGetDocs
     }
 

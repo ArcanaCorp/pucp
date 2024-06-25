@@ -6,6 +6,10 @@ import ModalOrders from './Orders/ModalOrders'
 import ModalQuotes from './Quotes/ModalQuotes'
 
 import './styles.css'
+import ModalCreate from './Orders/ModalCreate'
+import ModalSales from './Sales/ModalSales'
+import ModalAQuotes from './Quotes/ModalAQuotes'
+import ModalNSales from './Sales/ModalNSales'
 
 function Modal({ type }) {
     
@@ -14,8 +18,16 @@ function Modal({ type }) {
         <div className='__overlay'>
 
             {type === 'client' && ( <ModalClient/> )}
+
             {type === 'orders' && ( <ModalOrders/> )}
+            {type === 'corders' && ( <ModalCreate/> )}
+
+            {type === 'ventas' && ( <ModalSales/> )}
+            {type === 'nventas' && ( <ModalNSales/> )}
+            
             {type === 'quotes' && ( <ModalQuotes/> )}
+            {type === 'aquotes' && ( <ModalAQuotes/> )}
+            
             {type === 'docs' && ( <ModalDoc/> )}
 
         </div>

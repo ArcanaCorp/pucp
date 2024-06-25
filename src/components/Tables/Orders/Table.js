@@ -36,7 +36,7 @@ function Table() {
                 <div className='__col'>Cliente</div>
                 <div className='__col'>Fecha</div>
                 <div className='__col'>Estado</div>
-                <div className='__col'>Detalles</div>
+                <div className='__col'>Detalles del pedido</div>
             </div>
             <div className='__table_body'>
                 {filteredOrders.map((ord) => (

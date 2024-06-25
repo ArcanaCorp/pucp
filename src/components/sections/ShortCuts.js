@@ -17,10 +17,10 @@ function ShortCuts() {
     
         <div className='__row_shortcuts'>
         
-            <ShortCut icon={<IconCash/>} title={'Ingresos Totales'} />
-            <ShortCut icon={<IconChartBar/>} title={'Porcentaje de Ventas en el último mes'} />
+            <ShortCut icon={<IconCash/>} title={'Ingresos Totales'} number={shortCuts.total} />
+            <ShortCut icon={<IconChartBar/>} title={'Porcentaje de Ventas en el último mes'} number={shortCuts.ventas} />
             <ShortCut icon={<IconUserCircle/>} title={'Clientes nuevos del último mes'} number={shortCuts.clients} />
-            <ShortCut icon={<IconCheckbox/>} title={'Pedidos entregados'} />
+            <ShortCut icon={<IconCheckbox/>} title={'Pedidos entregados'} number={shortCuts.entregados} />
 
         </div>
     
