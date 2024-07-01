@@ -7,14 +7,16 @@ ChartJS.register(ArcElement, Tooltip, Legend);
 function ChartOrders() {
 
     const data = {
-        labels: ['Entregados', 'Proceso'],
+        labels: ['Recibido', 'Proceso', 'Entregados', 'Finalizado'],
         datasets: [
             {
                 label: 'Porcentaje',
-                data: [57.1, 42.9],
+                data: [57.1, 0, 0, 0],
                 backgroundColor: [
-                    'rgba(49, 50, 126, 1)',
-                    'rgba(54, 162, 235, 0.2)',
+                    'rgba(136, 136, 136)',
+                    'rgba(206, 185, 0)',
+                    'rgba(58, 206, 0)',
+                    'rgba(33, 150, 243)',
                 ]
             },
         ],

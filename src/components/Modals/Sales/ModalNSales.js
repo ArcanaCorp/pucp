@@ -92,24 +92,24 @@ function ModalNSales() {
                     <div className='__wapp_form_group'>
                         <div className='__wapp_form_control'>
                             <label htmlFor='namep'>Ingresar Nombre del Producto</label>
-                            <input type='text' name='namep' id='namep' placeholder='Ingresar Nombre del Producto' onChange={(e) => setNameProduct(e.target.value)} />
+                            <input type='text' className='__input' name='namep' id='namep' placeholder='Ingresar Nombre del Producto' onChange={(e) => setNameProduct(e.target.value)} />
                         </div>
                     </div>
                     <div className='__wapp_form_group'>
                         <div className='__wapp_form_control'>
                             <label htmlFor='files'>Seleccionar archivo de imagen</label>
-                            <input type='file' name='files' id='files' placeholder='Ingresar Nombre del Producto' accept='image/png, image/jpeg, image/jpg'  onChange={handleChangeFile} />
+                            <input type='file' className='__input' name='files' id='files' placeholder='Ingresar Nombre del Producto' accept='image/png, image/jpeg, image/jpg'  onChange={handleChangeFile} />
                         </div>
                     </div>
                     <div className='__wapp_form_group'>
                         <div className='__wapp_form_flex'>
                             <div className='__wapp_form_control'>
                                 <label htmlFor='pu'>Precio por Unidad</label>
-                                <input type='text' name='pu' id='pu' value={precioU} placeholder='Precio por Unidad'  onChange={(e) => handleChangePrice(e.target.value)} />
+                                <input type='text' className='__input' name='pu' id='pu' value={precioU} placeholder='Precio por Unidad'  onChange={(e) => handleChangePrice(e.target.value)} />
                             </div>
                             <div className='__wapp_form_control'>
                                 <label htmlFor='pd'>Precio por docena</label>
-                                <input type='text' name='pd' id='pd' value={precioD} placeholder='Precio por docena'  onChange={(e) => setPrecioD(e.target.value)} />
+                                <input type='text' className='__input' name='pd' id='pd' value={precioD} placeholder='Precio por docena'  onChange={(e) => setPrecioD(e.target.value)} />
                             </div>
                         </div>
                     </div>

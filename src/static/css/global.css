@@ -34,6 +34,7 @@ input, select, textarea {
     outline: none;
     background: none;
     border-radius: inherit;
+    background-color: #EEEEEE;
     font-family: var(--font-family);
 }
 

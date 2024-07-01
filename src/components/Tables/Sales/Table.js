@@ -10,6 +10,8 @@ function Table() {
 
     const [ filteredSales, setFilteredSales ] = useState([]);
 
+    console.log(searchFilter);
+
     useEffect(() => {
         if (shoppings.length > 0) {
             setFilteredSales(shoppings)
