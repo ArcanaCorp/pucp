@@ -1,10 +1,8 @@
 import React, { useContext } from 'react'
 import { IconCheck } from '@tabler/icons-react';
-import { orders } from "../../../data/ordersData";
 
 import UIContext from '../../../context/UI/UIContext'
 import DBContext from '../../../context/Data/DBContext';
-import AuthContext from '../../../context/Auth/AuthContext';
 
 import './modal.css'
 import '../styles.css'
@@ -13,11 +11,8 @@ function ModalOrders() {
 
     const { sales } = useContext(DBContext);
     const { isViewModal, handleViewModal } = useContext(UIContext);
-    const { isUser } = useContext(AuthContext)
 
     const info = sales.find((ord) => ord.id === isViewModal.id);
-
-    console.log(info);
 
     return (
     

@@ -1,10 +1,10 @@
 import React, { useContext } from 'react'
+
+import DBContext from '../../../context/Data/DBContext';
 import UIContext from '../../../context/UI/UIContext';
-import { cotizaciones } from "../../../data/cotizacionData";
+import Factura from '../../sections/Quotes/Factura/Factura';
 
 import './styles.css'
-import Factura from '../../sections/Quotes/Factura/Factura';
-import DBContext from '../../../context/Data/DBContext';
 
 function ModalQuotes() {
 

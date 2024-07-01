@@ -8,6 +8,8 @@ function Table() {
     const { quotes } = useContext(DBContext);
     const { searchFilter } = useContext(FilterContext);
 
+    console.log(searchFilter);
+
     const [ filteredQuotes, setFilteredQuotes ] = useState(quotes);
 
     useEffect(() => {

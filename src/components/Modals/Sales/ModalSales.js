@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useCallback, useContext, useEffect, useState } from 'react'
 
 import UIContext from '../../../context/UI/UIContext'
 import DBContext from '../../../context/Data/DBContext';
@@ -24,6 +24,13 @@ function ModalSales() {
 
     const [ isLoading, setIsLoading ] = useState(false);
 
+    const calculateSubtotal = useCallback(() => {
+        const productsSubtotal = Object.values(salesData.products).reduce((acc, product) => acc + product.subtotal, 0);
+        return productsSubtotal + parseFloat(salesData.precio_envio || 0);
+    }, [salesData.products, salesData.precio_envio]);
+
+    const calculateImpuesto = (subtotal) => subtotal * 0.18;
+
     useEffect(() => {
         const subtotal = calculateSubtotal();
         const impuesto = calculateImpuesto(subtotal);
@@ -33,7 +40,7 @@ function ModalSales() {
             subtotal,
             impuesto
         }));
-    }, [salesData.products, salesData.precio_envio]);
+    }, [calculateSubtotal]);
 
     const handleChange = (e) => {
         const { value, name } = e.target;
@@ -54,13 +61,6 @@ function ModalSales() {
             return { ...prevCotization, products: newProducts };
         });
     };
-
-    const calculateSubtotal = () => {
-        const productsSubtotal = Object.values(salesData.products).reduce((acc, product) => acc + product.subtotal, 0);
-        return productsSubtotal + parseFloat(salesData.precio_envio || 0);
-    };
-
-    const calculateImpuesto = (subtotal) => subtotal * 0.18;
 
     const subtotal = calculateSubtotal();
     const impuesto = calculateImpuesto(subtotal);

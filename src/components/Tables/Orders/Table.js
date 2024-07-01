@@ -10,6 +10,7 @@ function Table() {
 
     const { sales } = useContext(DBContext);
     const { searchFilter } = useContext(FilterContext);
+    console.log(searchFilter);
 
     const [ filteredOrders, setFilteredOrders ] = useState([]);
 

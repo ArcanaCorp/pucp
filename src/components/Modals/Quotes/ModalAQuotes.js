@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useCallback, useContext, useEffect, useState } from 'react'
 import UIContext from '../../../context/UI/UIContext'
 
 import './styles.css'
@@ -21,6 +21,13 @@ function ModalAQuotes() {
 
     const [ isLoading, setIsLoading ] = useState(false);
 
+    const calculateSubtotal = useCallback(() => {
+        const productsSubtotal = Object.values(contization.products).reduce((acc, product) => acc + product.subtotal, 0);
+        return productsSubtotal + parseFloat(contization.precio_envio || 0);
+    }, [contization.products, contization.precio_envio]);
+
+    const calculateImpuesto = (subtotal) => subtotal * 0.18;
+
     useEffect(() => {
         const subtotal = calculateSubtotal();
         const impuesto = calculateImpuesto(subtotal);
@@ -30,7 +37,7 @@ function ModalAQuotes() {
             subtotal,
             impuesto
         }));
-    }, [contization.products, contization.precio_envio]);
+    }, [calculateSubtotal]);
 
     const handleChangeClient = (client) => {
         setCotization(prevClient => ({
@@ -64,17 +71,6 @@ function ModalAQuotes() {
             precio_envio: value
         }))
     }
-
-    const calculateSubtotal = () => {
-        const productsSubtotal = Object.values(contization.products).reduce((acc, product) => acc + product.subtotal, 0);
-        return productsSubtotal + parseFloat(contization.precio_envio || 0);
-    };
-
-    const calculateImpuesto = (subtotal) => subtotal * 0.18;
-
-    const subtotal = calculateSubtotal();
-    const impuesto = calculateImpuesto(subtotal);
-    const total = subtotal + impuesto;
 
     const handleSendCotization = async () => {
 
@@ -122,6 +118,10 @@ function ModalAQuotes() {
         }
 
     }
+
+    const subtotal = calculateSubtotal();
+    const impuesto = calculateImpuesto(subtotal);
+    const total = subtotal + impuesto;
 
     return (
     
