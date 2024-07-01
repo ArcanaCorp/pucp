@@ -50,12 +50,12 @@ function Row({ id, number, name, contact, tipo, response, date }) {
         <>
             <div className={`__row_body ${number % 2 === 0 ? '__row_body_bg' : ''}`}>
                 <div className='__col __col_nmb'>{number}</div>
-                <div className='__col __col_A'>
+                <div className='__col __col_A' style={{textAlign: 'center'}}>
                     <p className='__txt_primary'>{name}</p>
                     <p className='__txt_secondary'>{contact}</p>
                 </div>
-                <div className='__col'><span style={{textTransform: 'uppercase'}}>{tipo}</span></div>
-                <div className='__col'>
+                <div className='__col' style={{textAlign: 'center'}}><span style={{textTransform: 'uppercase'}}>{tipo}</span></div>
+                <div className='__col' style={{textAlign: 'center'}}>
                     <p className='__txt_primary'>{formattedDate}</p>
                     <p className='__txt_secondary'>Agregado por <b>{response}</b></p>
                 </div>

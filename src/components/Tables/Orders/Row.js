@@ -29,9 +29,9 @@ function Row({ number, id, company, date, status }) {
     
         <div className={`__row_body ${number % 2 === 0 ? '__row_body_bg' : ''}`}>
             <div className='__col __col_nmb'>{number}</div>
-            <div className='__col __col_A'>{company}</div>
-            <div className='__col __col_A'>{formatedDate}</div>
-            <div className='__col __col_A'>
+            <div className='__col __col_A' style={{textAlign: 'center'}}>{company}</div>
+            <div className='__col __col_A' style={{textAlign: 'center'}}>{formatedDate}</div>
+            <div className='__col __col_A' style={{textAlign: 'center'}}>
                 <span className={`__badge_status __badge_status_${txtClases}`}>{txtStatus}</span>
             </div>
             <div className='__col __col_A'>

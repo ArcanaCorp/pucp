@@ -13,10 +13,10 @@ function Row({ number, code, company, date, price }) {
     
         <div className={`__row_body ${number % 2 === 0 ? '__row_body_bg' : ''}`}>
             <div className='__col __col_nmb'>{number}</div>
-            <div className='__col __col_A'>{company.name}</div>
-            <div className='__col __col_A'>{company.ruc}</div>
-            <div className='__col __col_A'>s/. {price}</div>
-            <div className='__col __col_A'>{formatedDate}</div>
+            <div className='__col __col_A' style={{textAlign: 'center'}}>{company.name}</div>
+            <div className='__col __col_A' style={{textAlign: 'center'}}>{company.ruc}</div>
+            <div className='__col __col_A' style={{textAlign: 'center'}}>s/. {price}</div>
+            <div className='__col __col_A' style={{textAlign: 'center'}}>{formatedDate}</div>
             <div className='__col __col_A'>
                 <button onClick={() => handleViewModal('quotes', code)}><IconFileSearch/></button>
             </div>

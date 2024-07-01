@@ -12,12 +12,18 @@ function ModalCreate() {
 
     const [ formData, setFormData ] = useState({
         proveedor: '',
+        tipo: '',
         insumo: '',
         total: '',
         date: '',
     })
     const [ choosedFile, setChoosedFile ] = useState(null)
     const [ isLoading, setIsLoading ] = useState(false);
+
+    const gastosList = {
+        'Administrativo': ['Transporte', 'Comida', 'Alojamiento'],
+        'Productivo': ['Ploteo', 'Bordado', 'Estampado', 'Proceso de corte', 'Otro']
+    }
 
     const handleChangeFile = (e) => {
         const file = e.target.files[0]
@@ -49,12 +55,13 @@ function ModalCreate() {
         
         e.preventDefault();
 
-        if (!formData.proveedor || !formData.insumo || !formData.total || !formData.date || !choosedFile) return handleMessageAlert('warning', 'Completa todos los campos', 'bg'); 
+        if (!formData.proveedor || !formData.tipo || !formData.insumo || !formData.total || !formData.date || !choosedFile) return handleMessageAlert('warning', 'Completa todos los campos', 'bg'); 
 
         setIsLoading(true);
 
         const data = new FormData();
         data.append('proveedor', formData.proveedor)
+        data.append('tipo', formData.tipo)
         data.append('insumo', formData.insumo)
         data.append('total', formData.total)
         data.append('date', formData.date)
@@ -74,6 +81,7 @@ function ModalCreate() {
             setIsLoading(false)
             setFormData({
                 proveedor: '',
+                tipo: '',
                 insumo: '',
                 total: '',
                 date: '',
@@ -111,16 +119,24 @@ function ModalCreate() {
                         </div>
                     </div>
                     <div className='__fw_form_group_'>
-                        <div className='__fw_form_control_'>
-                            <label>Seleccionar insumo o servicio comprado</label>
-                            <select name='insumo' id='insumo' onChange={(e) => handleChangeInput(e)}>
-                                <option defaultValue={''}>Seleccionar insumo o servicio comprado</option>
-                                <option value={'Bordado'}>Bordado</option>
-                                <option value={'Estampado'}>Estampado</option>
-                                <option value={'Proceso de corte'}>Proceso de corte</option>
-                                <option value={'Ploteo'}>Ploteo</option>
-                                <option value={'Otro'}>Otro</option>
-                            </select>
+                        <div className='__fw_form_flex_'>
+                            <div className='__fw_form_control_'>
+                                <label htmlFor='tipo'>Seleccionar tipo de compra</label>
+                                <select name='tipo' id='tipo' onChange={(e) => handleChangeInput(e)}>
+                                    <option defaultValue={''}>Seleccionar tipo de gasto o compra</option>
+                                    <option value={'Administrativo'}>Administrativo</option>
+                                    <option value={'Productivo'}>Productivo</option>
+                                </select>
+                            </div>
+                            <div className='__fw_form_control_'>
+                                <label>Seleccionar insumo o servicio comprado</label>
+                                <select name='insumo' id='insumo' onChange={(e) => handleChangeInput(e)}>
+                                    <option defaultValue={''}>Seleccionar insumo o servicio comprado</option>
+                                    {gastosList[formData.tipo] && gastosList[formData.tipo].map((gasto, index) => (
+                                        <option key={index} value={gasto}>{gasto}</option>
+                                    ))}
+                                </select>
+                            </div>
                         </div>
                     </div>
                     <div className='__fw_form_group_'>

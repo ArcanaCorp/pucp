@@ -99,7 +99,7 @@ function ModalProvider() {
                             </div>
                             <div className='__fw_form_control_'>
                                 <label>Ingresa el contacto del Proveedor</label>
-                                <input type='text' name='contact' id='contact' placeholder='Ingresa el RUC del Proveedor' aria-placeholder='Ingresa el RUC del Proveedor' onChange={(e) => handleChangeProveedor(e)} />
+                                <input type='text' name='contact' id='contact' placeholder='Ingresa el contacto del Proveedor' aria-placeholder='Ingresa el contacto del Proveedor' onChange={(e) => handleChangeProveedor(e)} />
                             </div>
                         </div>
                     </div>

@@ -23,13 +23,13 @@ function Selects({ date, types, sales, docs }) {
                 {date && (
                     <>
                         <select className='__select'>
-                            <option defaultValue={''}>Filtar por mes</option>
+                            <option defaultValue={''}>Filtrar por mes</option>
                             {months.map((month) => (
                                 <option key={month.value} value={month.value}>{month.name}</option>
                             ))}
                         </select>
                         <select className='__select'>
-                            <option defaultValue={''}>Filtar por año</option>
+                            <option defaultValue={''}>Filtrar por año</option>
                             {years.map((year) => (
                                 <option key={year} value={year}>{year}</option>
                             ))}

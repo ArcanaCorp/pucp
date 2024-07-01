@@ -155,6 +155,27 @@ export const DBProvider = ({ children }) => {
         })
     }
 
+    const updateStatusShopping = async (id, status) => {
+        try {
+            
+            await fetch(`${API.URL}/panel/sales/status/${id}/${status}`, {
+                method: 'PUT'
+            })
+            .then((response) => response.json())
+            .then((data) => {
+                if (data.ok) {
+                    handleGetSales();
+                }
+            })
+            .catch((error) => {
+                console.log(error);
+            })
+
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
     const handleGetQuotes = useCallback(async () => {
         try {
             
@@ -252,6 +273,7 @@ export const DBProvider = ({ children }) => {
         sales, handleGetSales,
         shoppings,
         handleAddShopping,
+        updateStatusShopping,
         quotes,
         handleGetQuotes,
         handleAddDocs,
