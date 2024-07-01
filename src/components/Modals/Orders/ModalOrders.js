@@ -3,6 +3,7 @@ import { IconCheck } from '@tabler/icons-react';
 import { orders } from "../../../data/ordersData";
 
 import UIContext from '../../../context/UI/UIContext'
+import DBContext from '../../../context/Data/DBContext';
 import AuthContext from '../../../context/Auth/AuthContext';
 
 import './modal.css'
@@ -10,10 +11,13 @@ import '../styles.css'
 
 function ModalOrders() {
 
+    const { sales } = useContext(DBContext);
     const { isViewModal, handleViewModal } = useContext(UIContext);
     const { isUser } = useContext(AuthContext)
 
-    const info = orders.find((ord) => ord.id === isViewModal.id);
+    const info = sales.find((ord) => ord.id === isViewModal.id);
+
+    console.log(info);
 
     return (
     
@@ -65,7 +69,7 @@ function ModalOrders() {
 
                                 <label htmlFor='name'>Responsable</label>
                                 <div className='__form_control'>
-                                    <input type='text' className='__entry' name='name' id='name' value={isUser.name} placeholder='Nombre del encargado' readOnly />
+                                    <input type='text' className='__entry' name='name' id='name' value={info.response} placeholder='Nombre del encargado' readOnly />
                                 </div>
 
                             </div>
@@ -91,19 +95,20 @@ function ModalOrders() {
                             </div>
 
                             <div className='__form_group'>
-
-                                <label htmlFor='name'>Fecha de contratacíon</label>
-                                <div className='__form_control'>
-                                    <input type='text' className='__entry' name='name' id='name' value={info.date} placeholder='Nombre del encargado' readOnly />
-                                </div>
-
-                            </div>
-
-                            <div className='__form_group'>
-
-                                <label htmlFor='name'>Fecha programada de entrega</label>
-                                <div className='__form_control'>
-                                    <input type='text' className='__entry' name='name' id='name' value={info.date} placeholder='Nombre del encargado' readOnly />
+                                
+                                <div className='__form_flex'>
+                                    <div>
+                                        <label htmlFor='name'>Fecha de contratacíon</label>
+                                        <div className='__form_control'>
+                                            <input type='text' className='__entry' name='name' id='name' value={info.date_start} placeholder='Nombre del encargado' readOnly />
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <label htmlFor='name'>Fecha programada de entrega</label>
+                                        <div className='__form_control'>
+                                            <input type='text' className='__entry' name='name' id='name' value={info.date_finish} placeholder='Nombre del encargado' readOnly />
+                                        </div>
+                                    </div>
                                 </div>
 
                             </div>

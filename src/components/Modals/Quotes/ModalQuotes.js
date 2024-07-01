@@ -4,18 +4,20 @@ import { cotizaciones } from "../../../data/cotizacionData";
 
 import './styles.css'
 import Factura from '../../sections/Quotes/Factura/Factura';
+import DBContext from '../../../context/Data/DBContext';
 
 function ModalQuotes() {
 
     const { isViewModal, handleViewModal } = useContext(UIContext);
+    const { quotes } = useContext(DBContext);
 
-    const data = cotizaciones.find((quote) => quote.code === isViewModal.id);
+    const data = quotes.find((quote) => quote.code === isViewModal.id);
 
     return (
     
         <div className='__modal'>
 
-            <div className='__modal_header'><h2>{data.company.name}</h2></div>
+            <div className='__modal_header'><h2>{data.company?.name}</h2></div>
 
             <div className='__modal_body'><Factura data={data} /></div>
 

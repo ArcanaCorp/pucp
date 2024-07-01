@@ -9,11 +9,13 @@ function Row({ number, id, company, date, status }) {
     const formatedDate = moment(date).format('DD / MM / YYYY')
 
     const statusTextMap = {
+        '0': 'Recibido',
         '1': 'En proceso',
         '2': 'Entregado',
         '3': 'Finalizado'
     };
     const statusTextMap2 = {
+        '0': 'warning',
         '1': 'warning',
         '2': 'success',
         '3': 'info'

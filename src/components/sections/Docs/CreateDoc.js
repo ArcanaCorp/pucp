@@ -7,7 +7,7 @@ import UIContext from '../../../context/UI/UIContext';
 
 function CreateDoc() {
 
-    const { clients } = useContext(DBContext)
+    const { clients, handleAddDocs } = useContext(DBContext)
     const { handleMessageAlert, handleViewModal } = useContext(UIContext);
 
     const [ isFile, setIsFile ] = useState(null);
@@ -92,6 +92,7 @@ function CreateDoc() {
             setIsFile(null);
             setFileType('');
             setError(null);
+            handleAddDocs(result.document)
             handleMessageAlert('success', result.message, 'bg')
 
         } catch (error) {

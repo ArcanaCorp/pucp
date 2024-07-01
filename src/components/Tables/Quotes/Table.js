@@ -1,30 +1,20 @@
 import React, { useContext, useEffect, useState } from 'react'
 import Row from './Row'
-
-import { cotizaciones } from "../../../data/cotizacionData";
 import FilterContext from '../../../context/Filter/FilterContext';
+import DBContext from '../../../context/Data/DBContext';
 
 function Table() {
 
+    const { quotes } = useContext(DBContext);
     const { searchFilter } = useContext(FilterContext);
 
-    const [ filteredQuotes, setFilteredQuotes ] = useState([]);
+    const [ filteredQuotes, setFilteredQuotes ] = useState(quotes);
 
     useEffect(() => {
-        if (searchFilter.table === 'quotes') {
-            const filter = cotizaciones.filter((odr) => {
-                return (
-                    odr.company.name.toLocaleLowerCase().includes(searchFilter.query) ||
-                    odr.company.ruc20.toLocaleLowerCase().includes(searchFilter.query) ||
-                    odr.company.contacto.toLocaleLowerCase().includes(searchFilter.query) ||
-                    odr.company.direccion.toLocaleLowerCase().includes(searchFilter.query)
-                );
-            })
-            setFilteredQuotes(filter);   
-        } else {
-            setFilteredQuotes(cotizaciones)
+        if (quotes.length > 0) {
+            setFilteredQuotes(quotes)
         }
-    }, [searchFilter])
+    }, [quotes])
 
     return (
     
@@ -39,9 +29,17 @@ function Table() {
                 <div className='__col'>Detalles</div>
             </div>
             <div className='__table_body'>
-                {filteredQuotes.map((quote, iq) => (
-                    <Row key={iq} number={iq+1} code={quote.code} company={quote.company} date={quote.date} price={quote.price} />
-                ))}
+                {filteredQuotes.length > 0 ? (
+                    <>
+                        {filteredQuotes.map((quote, iq) => (
+                            <Row key={iq} number={iq+1} code={quote.code} company={quote.company} price={quote.total} date={quote.date} />
+                        ))}
+                    </>
+                ) : (
+                    <>
+                        <div style={{width: '100%', height: '60px', display: 'grid', placeItems: 'center'}}>No hay datos aún</div>
+                    </>
+                )}
             </div>
 
         </div>

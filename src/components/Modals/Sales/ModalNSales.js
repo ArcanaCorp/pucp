@@ -12,6 +12,8 @@ function ModalNSales() {
     const { handleGetProducts } = useContext(DBContext);
 
     const [ nameProduct, setNameProduct ] = useState('')
+    const [ precioU, setPrecioU ] = useState(0)
+    const [ precioD, setPrecioD ] = useState(0)
     const [ imageProduct, setImageProduct ] = useState(null)
 
     const [ isLoading, setIsLoading ] = useState(false)
@@ -33,6 +35,11 @@ function ModalNSales() {
         }
     }
 
+    const handleChangePrice = (value) => {
+        setPrecioU(value);
+        setPrecioD(value * 12);
+    }
+
     const handleNewProduct = async (e) => {
         e.preventDefault();
 
@@ -44,6 +51,8 @@ function ModalNSales() {
 
         const data = new FormData();
         data.append('name', nameProduct)
+        data.append('precioU', precioU)
+        data.append('precioD', precioD)
         data.append('files', imageProduct)
         data.append('date', currentDay)
 
@@ -78,7 +87,7 @@ function ModalNSales() {
     
         <div className='__modal' style={{width: '40%'}}>
             <div className='__modal_header'><h2>Agregar nuevo producto</h2></div>
-            <div className='__modal_body' style={{height: '200px'}} onSubmit={handleNewProduct}>
+            <div className='__modal_body' style={{height: '300px'}} onSubmit={handleNewProduct}>
                 <form className='__wapp_form' id='formAddProduct' method='POST' encType='multipart/form-data'>
                     <div className='__wapp_form_group'>
                         <div className='__wapp_form_control'>
@@ -90,6 +99,18 @@ function ModalNSales() {
                         <div className='__wapp_form_control'>
                             <label htmlFor='files'>Seleccionar archivo de imagen</label>
                             <input type='file' name='files' id='files' placeholder='Ingresar Nombre del Producto' accept='image/png, image/jpeg, image/jpg'  onChange={handleChangeFile} />
+                        </div>
+                    </div>
+                    <div className='__wapp_form_group'>
+                        <div className='__wapp_form_flex'>
+                            <div className='__wapp_form_control'>
+                                <label htmlFor='pu'>Precio por Unidad</label>
+                                <input type='text' name='pu' id='pu' value={precioU} placeholder='Precio por Unidad'  onChange={(e) => handleChangePrice(e.target.value)} />
+                            </div>
+                            <div className='__wapp_form_control'>
+                                <label htmlFor='pd'>Precio por docena</label>
+                                <input type='text' name='pd' id='pd' value={precioD} placeholder='Precio por docena'  onChange={(e) => setPrecioD(e.target.value)} />
+                            </div>
                         </div>
                     </div>
                 </form>

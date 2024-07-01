@@ -4,10 +4,12 @@ import UIContext from '../../../context/UI/UIContext'
 import './modalclients.css'
 import { API } from '../../../api/api';
 import moment from 'moment';
+import DBContext from '../../../context/Data/DBContext';
 
 function ModalClient() {
 
     const { handleViewModal, handleMessageAlert } = useContext(UIContext);
+    const { handleAddClient } = useContext(DBContext);
 
     const [ client, setClient ] = useState({
         name: '',
@@ -55,7 +57,8 @@ function ModalClient() {
             .then((data) => {
                 if (data.ok) {
                     handleViewModal('', '')
-                    handleMessageAlert('success', 'Se creó con éxito', 'bg')
+                    handleAddClient(data.client);
+                    handleMessageAlert('success', data.message, 'bg')
                 } else {
                     handleMessageAlert('warning', `Warning: ${data.message}`, 'bg')
                 }

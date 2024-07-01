@@ -1,32 +1,23 @@
 import React, { useContext, useEffect, useState } from 'react'
-import { orders } from '../../../data/ordersData'
 import FilterContext from '../../../context/Filter/FilterContext'
 
 import Row from './Row'
 
 import './table.css'
+import DBContext from '../../../context/Data/DBContext'
 
 function Table() {
 
+    const { sales } = useContext(DBContext);
     const { searchFilter } = useContext(FilterContext);
 
     const [ filteredOrders, setFilteredOrders ] = useState([]);
 
     useEffect(() => {
-        if (searchFilter.table === 'orders') {
-            const filter = orders.filter((odr) => {
-                return (
-                    odr.company.name.toLocaleLowerCase().includes(searchFilter.query) ||
-                    odr.company.ruc20.toLocaleLowerCase().includes(searchFilter.query) ||
-                    odr.company.contacto.toLocaleLowerCase().includes(searchFilter.query) ||
-                    odr.company.direccion.toLocaleLowerCase().includes(searchFilter.query)
-                );
-            })
-            setFilteredOrders(filter);   
-        } else {
-            setFilteredOrders(orders)
+        if (sales.length > 0) {
+            setFilteredOrders(sales)
         }
-    }, [searchFilter])
+    }, [sales])
 
     return (
     
@@ -39,9 +30,17 @@ function Table() {
                 <div className='__col'>Detalles del pedido</div>
             </div>
             <div className='__table_body'>
-                {filteredOrders.map((ord) => (
-                    <Row key={ord.id} number={ord.id} id={ord.id} company={ord.company.name} date={ord.date} status={ord.status} />
-                ))}
+                {filteredOrders.length > 0 ? (
+                    <>
+                        {filteredOrders.map((ord) => (
+                            <Row key={ord.id} number={ord.id} id={ord.id} company={ord.company.name} date={ord.date} status={ord.status} />
+                        ))}
+                    </>
+                ) : (
+                    <>
+                        <div style={{width: '100%', height: '60px', display: 'grid', placeItems: 'center'}}>No hay datos aún</div>
+                    </>
+                )}
             </div>
         </div>
     

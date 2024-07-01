@@ -11,39 +11,15 @@ function Table() {
     const { docs } = useContext(DBContext);
     const { searchFilter } = useContext(FilterContext);
 
-    const [ filteredDocuments, setFilteredDocuments ] = useState(docs);
+    console.log(searchFilter);
+
+    const [ filteredDocuments, setFilteredDocuments ] = useState([]);
 
     useEffect(() => {
-        if (searchFilter.table === 'doc') {
-
-            let filteredDocs = [...docs];
-
-            if (searchFilter.query !== '') {
-                const query = searchFilter.query;
-                filteredDocs = filteredDocs.filter((doc) => {
-                    const clientName = doc.client?.name === '' ? '' : doc.client.name;
-                    return clientName.toLowerCase().includes(query)
-                })
-            }
-    
-            if (searchFilter.year !== '') {
-                filteredDocs = filteredDocs.filter((doc) => doc.year === searchFilter.year);
-            }
-    
-            if (searchFilter.month !== '') {
-                filteredDocs = filteredDocs.filter((doc) => doc.month === searchFilter.month);
-            }
-    
-            if (searchFilter.tipo !== '') {
-                filteredDocs = filteredDocs.filter((doc) => doc.type === searchFilter.tipo);
-            }
-
-            setFilteredDocuments(filteredDocs);
-
-        } else {
-            setFilteredDocuments(docs)
+        if (docs.length > 0) {
+            setFilteredDocuments(docs);
         }
-    }, [searchFilter, docs])
+    }, [docs])
 
     return (
         <div className='__table'>
@@ -52,11 +28,20 @@ function Table() {
                 <div className='__col'>Cliente</div>
                 <div className='__col'>Tipo</div>
                 <div className='__col'>Fecha</div>
+                <div className='__col'>Acciones</div>
             </div>
             <div className='__table_body'>
-                {filteredDocuments.map((doc) => (
-                    <Row key={doc.id} number={doc.id} name={doc.client.name} contact={doc.client.contact} tipo={doc.type} status={doc.stauts} response={doc.response} date={doc.date} />
-                ))}
+                {filteredDocuments.length > 0 ? (
+                    <>
+                        {filteredDocuments.map((doc, indice) => (
+                            <Row key={doc.id} id={doc.id} number={indice + 1} name={doc.client.name} contact={doc.client.contact} tipo={doc.type} status={doc.stauts} response={doc.response} date={doc.date} />
+                        ))}
+                    </>
+                ) : (
+                    <>
+                        <div style={{width: '100%', height: '60px', display: 'grid', placeItems: 'center'}}>No hay datos aún</div>
+                    </>
+                )}
             </div>
         </div>
     );

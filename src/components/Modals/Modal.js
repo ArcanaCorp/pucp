@@ -10,6 +10,7 @@ import ModalCreate from './Orders/ModalCreate'
 import ModalSales from './Sales/ModalSales'
 import ModalAQuotes from './Quotes/ModalAQuotes'
 import ModalNSales from './Sales/ModalNSales'
+import ModalProvider from './Orders/ModalProvider'
 
 function Modal({ type }) {
     
@@ -21,6 +22,7 @@ function Modal({ type }) {
 
             {type === 'orders' && ( <ModalOrders/> )}
             {type === 'corders' && ( <ModalCreate/> )}
+            {type === 'providers' && ( <ModalProvider/> )}
 
             {type === 'ventas' && ( <ModalSales/> )}
             {type === 'nventas' && ( <ModalNSales/> )}

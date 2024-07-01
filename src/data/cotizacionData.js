@@ -10,16 +10,9 @@ export const cotizaciones = [
         date: "2024-06-21",
         price: "850.75",
         details: [
-            {
-                product: "Uniforme completo",
-                amount: 10,
-                precio_u: 60.00,
-                product_details: [
-                    { component: "Pantalón", precio_u: 25.00, cantidad: 10, precio_total: 250.00 },
-                    { component: "Camisa", precio_u: 20.00, cantidad: 10, precio_total: 200.00 },
-                    { component: "Chaqueta", precio_u: 15.00, cantidad: 10, precio_total: 150.00 }
-                ]
-            }
+            { component: "Pantalón", precio_u: 25.00, cantidad: 10, precio_total: 250.00 },
+            { component: "Camisa", precio_u: 20.00, cantidad: 10, precio_total: 200.00 },
+            { component: "Chaqueta", precio_u: 15.00, cantidad: 10, precio_total: 150.00 }
         ],
         precio_envio: 50.00,
         subtotal: 650.00,

@@ -94,3 +94,9 @@
 .__table_facture_body .__row_facture .__col_facture_title {
     padding: 0rem 4rem;
 }
+
+.__table_facture_body .__row_facture .__col_facture_sxs {
+    padding: 0rem 1rem;
+    text-align: center;
+    justify-content: center;
+}

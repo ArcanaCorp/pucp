@@ -1,3 +1,3 @@
 export const API = {
-    URL: 'https://pucp.sigma-jauja.edu.pe/api'
+    URL: 'http://localhost:4000/api'
 }

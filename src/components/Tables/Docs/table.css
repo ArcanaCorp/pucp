@@ -58,6 +58,7 @@
     width: 100%;
     display: grid;
     height: inherit;
+    text-align: center;
     place-items: center;
     border-right: 1px solid #cccccc;
 }
@@ -90,4 +91,54 @@
     color: var(--warning);
     border: 2px solid var(--warning);
     background-color: var(--warning-bg);
+}
+
+.__table_body .__row_body .__col-action {
+    position: relative;
+}
+
+.__table_body .__row_body .__col .__col-actions {
+    position: relative;
+    display: flex;
+    gap: 1rem;
+    flex-direction: row;
+}
+.__table_body .__row_body .__col .__col-actions .__edit .tabler-icon {
+    stroke: var(--primary);
+}
+.__table_body .__row_body .__col .__col-actions .__delete .tabler-icon {
+    stroke: var(--danger);
+}
+
+.__table_body .__row_body .__col-action .__menu {
+    position: absolute;
+    display: none;
+    z-index: 1;
+    bottom: -80px;
+    padding: .5rem;
+    border-radius: 5px;
+    background-color: var(--white);
+    box-shadow: 0px 4px 8px 0px rgba(44, 44, 0, 0.2);
+}
+
+.__table_body .__row_body .__col-action .__menu--active {
+    display: block;
+}
+
+.__table_body .__row_body .__col-action .__menu p {
+    font-weight: 500;
+    margin-bottom: .5rem;
+}
+.__table_body .__row_body .__col-action .__menu .__btn {
+    width: 100%;
+    height: 40px;
+    font-weight: 500;
+    border-radius: 5px;
+}
+.__table_body .__row_body .__col-action .__menu .__btn_cancel {
+    background-color: #EEEEEE;
+}
+.__table_body .__row_body .__col-action .__menu .__btn_delete {
+    color: var(--danger);
+    background-color: var(--danger-bg);
 }

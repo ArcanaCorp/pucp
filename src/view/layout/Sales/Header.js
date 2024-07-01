@@ -12,7 +12,7 @@ function Header() {
             <h1>Ventas</h1>
             <div className='__filters'>
                 <button className='__btn_add' onClick={() => handleViewModal('nventas', 0)}>Nuevo Producto</button>
-                <button className='__btn_add' onClick={() => handleViewModal('ventas', 0)}>Nueva Pedido</button>
+                <button className='__btn_add' onClick={() => handleViewModal('ventas', 0)}>Nuevo Pedido</button>
             </div>
         </div>
     

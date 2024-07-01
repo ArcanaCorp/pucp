@@ -14,7 +14,7 @@ function Row({ number, code, company, date, price }) {
         <div className={`__row_body ${number % 2 === 0 ? '__row_body_bg' : ''}`}>
             <div className='__col __col_nmb'>{number}</div>
             <div className='__col __col_A'>{company.name}</div>
-            <div className='__col __col_A'>{company.ruc20}</div>
+            <div className='__col __col_A'>{company.ruc}</div>
             <div className='__col __col_A'>s/. {price}</div>
             <div className='__col __col_A'>{formatedDate}</div>
             <div className='__col __col_A'>

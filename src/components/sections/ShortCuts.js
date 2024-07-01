@@ -2,6 +2,7 @@ import React, { useContext, useEffect } from 'react'
 import ShortCut from '../Cards/shortcuts/ShortCut'
 import { IconCash, IconChartBar, IconCheckbox, IconUserCircle } from '@tabler/icons-react';
 import DBContext from '../../context/Data/DBContext';
+import ShortCutClient from '../Cards/shortcuts/ShortCutClient';
 
 function ShortCuts() {
 
@@ -18,9 +19,7 @@ function ShortCuts() {
         <div className='__row_shortcuts'>
         
             <ShortCut icon={<IconCash/>} title={'Ingresos Totales'} number={shortCuts.total} />
-            <ShortCut icon={<IconChartBar/>} title={'Porcentaje de Ventas en el último mes'} number={shortCuts.ventas} />
-            <ShortCut icon={<IconUserCircle/>} title={'Clientes nuevos del último mes'} number={shortCuts.clients} />
-            <ShortCut icon={<IconCheckbox/>} title={'Pedidos entregados'} number={shortCuts.entregados} />
+            <ShortCutClient icon={<IconUserCircle/>} title={'Clientes nuevo del último mes'} />
 
         </div>
     
