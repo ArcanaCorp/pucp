@@ -11,6 +11,7 @@ import ModalSales from './Sales/ModalSales'
 import ModalAQuotes from './Quotes/ModalAQuotes'
 import ModalNSales from './Sales/ModalNSales'
 import ModalProvider from './Orders/ModalProvider'
+import ModalEdit from './Docs/ModalEdit'
 
 function Modal({ type }) {
     
@@ -31,6 +32,7 @@ function Modal({ type }) {
             {type === 'aquotes' && ( <ModalAQuotes/> )}
             
             {type === 'docs' && ( <ModalDoc/> )}
+            {type === 'editdocs' && ( <ModalEdit/> )}
 
         </div>
     

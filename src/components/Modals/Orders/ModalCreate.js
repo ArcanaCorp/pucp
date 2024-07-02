@@ -168,8 +168,8 @@ function ModalCreate() {
                     </div>
                     <div className='__fw_form_group_'>
                         <div className='__fw_form_control_'>
-                            <label htmlFor='codeVoleta'>Escribir código de voleta</label>
-                            <input type='text' name='codeVoleta' id='codeVoleta' placeholder='Escribir código de voleta' aria-placeholder='Escribir código de voleta' onChange={(e) => handleChangeInput(e)} />
+                            <label htmlFor='codeVoleta'>Escribir código de boleta</label>
+                            <input type='text' name='codeVoleta' id='codeVoleta' placeholder='Escribir código de boleta' aria-placeholder='Escribir código de boleta' onChange={(e) => handleChangeInput(e)} />
                         </div>
                     </div>
                 </div>
