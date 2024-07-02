@@ -3,7 +3,7 @@
     --danger-bg: rgb(240, 0, 0, .2);
 
     --gray: #888888;
-    --gray-bg: rgb(136, 136, 136);
+    --gray-bg: rgb(136, 136, 136, .2);
 
     --warning: #ceb600;
     --warning-bg: rgba(206, 185, 0, 0.2);
@@ -83,15 +83,20 @@
     font-size: .8rem;
     border-radius: .2rem;
 }
-.__table_body .__row_body .__col .__badge_status_success {
-    color: var(--success);
-    border: 2px solid var(--success);
-    background-color: var(--success-bg);
+.__table_body .__row_body .__col .__badge_status_gray {
+    color: var(--gray);
+    border: 2px solid var(--gray);
+    background-color: var(--gray-bg);
 }
 .__table_body .__row_body .__col .__badge_status_warning {
     color: var(--warning);
     border: 2px solid var(--warning);
     background-color: var(--warning-bg);
+}
+.__table_body .__row_body .__col .__badge_status_success {
+    color: var(--success);
+    border: 2px solid var(--success);
+    background-color: var(--success-bg);
 }
 .__table_body .__row_body .__col .__badge_status_info {
     color: var(--info);

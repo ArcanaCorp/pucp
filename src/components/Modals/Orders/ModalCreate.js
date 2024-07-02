@@ -16,6 +16,7 @@ function ModalCreate() {
         insumo: '',
         total: '',
         date: '',
+        codeVoleta: ''
     })
     const [ choosedFile, setChoosedFile ] = useState(null)
     const [ isLoading, setIsLoading ] = useState(false);
@@ -55,7 +56,7 @@ function ModalCreate() {
         
         e.preventDefault();
 
-        if (!formData.proveedor || !formData.tipo || !formData.insumo || !formData.total || !formData.date || !choosedFile) return handleMessageAlert('warning', 'Completa todos los campos', 'bg'); 
+        if (!formData.proveedor || !formData.tipo || !formData.insumo || !formData.total || !formData.date) return handleMessageAlert('warning', 'Completa todos los campos', 'bg'); 
 
         setIsLoading(true);
 
@@ -65,7 +66,14 @@ function ModalCreate() {
         data.append('insumo', formData.insumo)
         data.append('total', formData.total)
         data.append('date', formData.date)
-        data.append('file', choosedFile)
+        
+        if (formData.codeVoleta) {
+            data.append('codeVoleta', formData.codeVoleta);
+        }
+
+        if (choosedFile) {
+            data.append('file', choosedFile);
+        }
 
         try {
             
@@ -85,6 +93,7 @@ function ModalCreate() {
                 insumo: '',
                 total: '',
                 date: '',
+                codeVoleta: ''
             })
             setChoosedFile(null)
             handleViewModal('', '')
@@ -155,6 +164,12 @@ function ModalCreate() {
                         <div className='__fw_form_control_'>
                             <label htmlFor='file'>Subir boleta o factura</label>
                             <input type='file' name='file' id='file' accept=".pdf, .jpg, .jpeg, .png" onChange={handleChangeFile}/>
+                        </div>
+                    </div>
+                    <div className='__fw_form_group_'>
+                        <div className='__fw_form_control_'>
+                            <label htmlFor='codeVoleta'>Escribir código de voleta</label>
+                            <input type='text' name='codeVoleta' id='codeVoleta' placeholder='Escribir código de voleta' aria-placeholder='Escribir código de voleta' onChange={(e) => handleChangeInput(e)} />
                         </div>
                     </div>
                 </div>

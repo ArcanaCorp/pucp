@@ -37,19 +37,12 @@ export const DBProvider = ({ children }) => {
 
         try {
 
-            const cachedClients = localStorage.getItem('clients');
-
-            if (cachedClients) {
-                setClients(JSON.parse(cachedClients));
+            const response = await fetch(`${API.URL}/panel/client`)
+            const data = await response.json();
+            if (data.ok) {
+                setClients(data.clients);
             } else {
-                const response = await fetch(`${API.URL}/panel/client`)
-                const data = await response.json();
-                if (data.ok) {
-                    setClients(data.clients);
-                    localStorage.setItem('clients', JSON.stringify(data.clients));
-                } else {
-                    console.log(data.message);
-                }
+                console.log(data.message);
             }
 
         } catch (error) {
@@ -60,7 +53,6 @@ export const DBProvider = ({ children }) => {
     const handleAddClient = async (bodyClient) => {
         setClients(prevClients => {
             const updatedClients = [...prevClients, bodyClient];
-            localStorage.setItem('clients', JSON.stringify(updatedClients));
             return updatedClients;
         });
     };
@@ -85,19 +77,10 @@ export const DBProvider = ({ children }) => {
 
         try {
             
-            const cachedProvider = localStorage.getItem('providers');
-
-            if (cachedProvider) {
-                setProvidersList(JSON.parse(cachedProvider))
-            } else {
-
-                const response = await fetch(`${API.URL}/panel/shopping/provider`);
-                const data = await response.json();
-                if (data.ok) {
-                    setProvidersList(data.providers);
-                    localStorage.setItem('providers', JSON.stringify(data.providers));
-                }
-            
+            const response = await fetch(`${API.URL}/panel/shopping/provider`);
+            const data = await response.json();
+            if (data.ok) {
+                setProvidersList(data.providers);
             }
 
         } catch (error) {
@@ -130,17 +113,10 @@ export const DBProvider = ({ children }) => {
     const handleGetShoppings = useCallback( async () => {
         try {
             
-            const cachedShoppings = localStorage.getItem('shoppings')
-
-            if (cachedShoppings) {
-                setShoppings(JSON.parse(cachedShoppings))
-            } else {
-                const response = await fetch(`${API.URL}/panel/shopping`)
-                const data = await response.json()
-                if (data.ok) {
-                    setShoppings(data.shopping)
-                    localStorage.setItem('shoppings', JSON.stringify(data.shopping))
-                }
+            const response = await fetch(`${API.URL}/panel/shopping`)
+            const data = await response.json()
+            if (data.ok) {
+                setShoppings(data.shopping)
             }
 
         } catch (error) {

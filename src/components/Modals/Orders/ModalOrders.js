@@ -42,11 +42,11 @@ function ModalOrders() {
                                 </div>
                                 <div className='__tim'>
                                     <div className={`__circular ${info.status >= 2 && '__circular--active'}`} onClick={() => updateStatusShopping(info.id, 2)}>{info.status >= 2 && ( <IconCheck/> )}</div>
-                                    <h5>Terminado</h5>
+                                    <h5>Entregado</h5>
                                 </div>
                                 <div className='__tim'>
-                                    <div className={`__circular ${info.status === 3 && '__circular--active'}`} onClick={() => updateStatusShopping(info.id, 3)}>{info.status === 3 && ( <IconCheck/> )}</div>
-                                    <h5>Entregado</h5>
+                                    <div className={`__circular ${info.status >= 3 && '__circular--active'}`} onClick={() => updateStatusShopping(info.id, 3)}>{info.status >= 3 && ( <IconCheck/> )}</div>
+                                    <h5>Terminado</h5>
                                 </div>
                             </div>
 

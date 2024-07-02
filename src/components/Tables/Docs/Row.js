@@ -1,7 +1,7 @@
 import React, { useContext, useState } from 'react'
 import moment from 'moment';
 import 'moment/locale/es';
-import { IconEdit, IconTrash } from '@tabler/icons-react';
+import { IconTrash } from '@tabler/icons-react';
 import { API } from '../../../api/api';
 import UIContext from '../../../context/UI/UIContext';
 import DBContext from '../../../context/Data/DBContext';
@@ -61,7 +61,6 @@ function Row({ id, number, name, contact, tipo, response, date }) {
                 </div>
                 <div className='__col __col-action'>
                     <div className='__col-actions'>
-                        <button className='__edit'><IconEdit/></button>
                         <button className='__delete' onClick={() => setIsDelete(!isDelete)}><IconTrash/></button>
                     </div>
                     <div className={`__menu ${isDelete ? '__menu--active' : ''}`}>

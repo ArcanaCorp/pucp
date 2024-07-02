@@ -55,6 +55,7 @@ function ModalClient() {
             })
             .then((response) => response.json())
             .then((data) => {
+                console.log(data);
                 if (data.ok) {
                     handleViewModal('', '')
                     handleAddClient(data.client);
@@ -64,6 +65,7 @@ function ModalClient() {
                 }
             })
             .catch((err) => {
+                console.log(err);
                 handleMessageAlert('error', `Error: ${err.message}`, 'bg')
             })
             .finally(() => {

@@ -5,11 +5,14 @@ import DBContext from '../../../context/Data/DBContext';
 
 import './msales.css'
 import { API } from '../../../api/api';
+import moment from 'moment';
 
 function ModalSales() {
 
     const { handleViewModal, handleMessageAlert } = useContext(UIContext);
     const { clients, products, handleGetSales } = useContext(DBContext);
+
+    const currentDay = moment().format('YYYY-MM-DD');
 
     const [ salesData, setSalesData ] = useState({
         response: '',
@@ -19,7 +22,7 @@ function ModalSales() {
         dateFinish: '',
         precio_envio: '',
         subtotal: '',
-        impuesto: '',
+        impuesto: ''
     })
 
     const [ isLoading, setIsLoading ] = useState(false);
@@ -78,7 +81,8 @@ function ModalSales() {
         const payload = {
             ...salesData,
             products: productsArray,
-            precio_envio: parseFloat(salesData.precio_envio) || 0
+            precio_envio: parseFloat(salesData.precio_envio) || 0,
+            date: currentDay
         };
 
         try {

@@ -12,9 +12,9 @@ function Table() {
     const { docs } = useContext(DBContext);
 
     const [ filteredDocuments, setFilteredDocuments ] = useState([]);
-    const [searchFilter, setSearchFilter] = useState('');
-    const [selectedMonth, setSelectedMonth] = useState('');
-    const [selectedYear, setSelectedYear] = useState('');
+    const [ searchFilter, setSearchFilter ] = useState('');
+    const [ selectedMonth, setSelectedMonth ] = useState('');
+    const [ selectedYear, setSelectedYear ] = useState('');
 
     const months = moment.months().map((month, index) => ({
         name: month,
@@ -25,8 +25,8 @@ function Table() {
     const years = Array.from({ length: 7 }, (v, i) => currentYear - i);
 
     const handleSearchBar = (e) => setSearchFilter(e.target.value);
-    const handleMonthChange = (e) => setSelectedMonth(e.target.value);
-    const handleYearChange = (e) => setSelectedYear(e.target.value);
+    const handleMonthChange = (e) => setSelectedMonth(e.target.value || ''); // Asigna '' si se selecciona el valor por defecto
+    const handleYearChange = (e) => setSelectedYear(e.target.value || ''); // Asigna '' si se selecciona el valor por defecto
 
     useEffect(() => {
         const filterDocuments = () => {
@@ -63,33 +63,26 @@ function Table() {
     }, [docs])
 
     return (
-
         <>
-
             <div className='__filter_bar'>
-
                 <div style={{display: 'flex', gap: '2rem'}}>
-                
                     <select className='__select' onChange={(e) => handleMonthChange(e)}>
-                        <option defaultValue={''}>Filtrar por mes</option>
+                        <option value={''}>Filtrar por mes</option>
                         {months.map((month) => (
                             <option key={month.value} value={month.value}>{month.name}</option>
                         ))}
                     </select>
-                    <select className='__select'  onChange={(e) => handleYearChange(e)}>
-                        <option defaultValue={''}>Filtrar por año</option>
+                    <select className='__select' onChange={(e) => handleYearChange(e)}>
+                        <option value={''}>Filtrar por año</option>
                         {years.map((year) => (
                             <option key={year} value={year}>{year}</option>
                         ))}
                     </select>
-
                 </div>
-
                 <div className='__searchbox'>
                     <input type='text' name='search' id='search' placeholder={'Buscar'} onChange={(e) => handleSearchBar(e)} />
                     <span><IconSearch/></span>
                 </div>
-
             </div>
 
             <div className='__table'>
@@ -115,7 +108,6 @@ function Table() {
                 </div>
             </div>
         </>
-
     );
 }
 

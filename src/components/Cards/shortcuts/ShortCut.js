@@ -1,8 +1,13 @@
-import React from 'react'
+import React, { useContext } from 'react'
 
 import './shortcut.css'
+import DBContext from '../../../context/Data/DBContext'
 
-function ShortCut({ icon, title, number }) {
+function ShortCut({ icon, title }) {
+
+    const { sales } = useContext(DBContext);
+
+    const totalSales = sales.reduce((acc, sale) => acc + parseFloat(sale.total), 0).toFixed(2);
 
     return (
     
@@ -16,7 +21,7 @@ function ShortCut({ icon, title, number }) {
                 <p>{title}</p>
             </div>
             <div className='__row_card_shortcut'>
-                <h2>{number}</h2>
+                <h2>s/. {totalSales}</h2>
             </div>
         </div>
     

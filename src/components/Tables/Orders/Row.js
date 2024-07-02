@@ -15,7 +15,7 @@ function Row({ number, id, company, date, status }) {
         '3': 'Finalizado'
     };
     const statusTextMap2 = {
-        '0': 'warning',
+        '0': 'gray',
         '1': 'warning',
         '2': 'success',
         '3': 'info'

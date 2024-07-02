@@ -1,15 +1,15 @@
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react';
 import DBContext from '../../../context/Data/DBContext';
 import { IconSearch } from '@tabler/icons-react';
 import moment from 'moment';
 
-import Row from './Row'
+import Row from './Row';
 
 function Table() {
 
     const { quotes } = useContext(DBContext);
 
-    const [ filteredQuotes, setFilteredQuotes ] = useState(quotes);
+    const [filteredQuotes, setFilteredQuotes] = useState(quotes);
     const [searchFilter, setSearchFilter] = useState('');
     const [selectedMonth, setSelectedMonth] = useState('');
     const [selectedYear, setSelectedYear] = useState('');
@@ -23,79 +23,67 @@ function Table() {
     const years = Array.from({ length: 7 }, (v, i) => currentYear - i);
 
     const handleSearchBar = (e) => setSearchFilter(e.target.value);
-    const handleMonthChange = (e) => setSelectedMonth(e.target.value);
-    const handleYearChange = (e) => setSelectedYear(e.target.value);
+    const handleMonthChange = (e) => setSelectedMonth(e.target.value || ''); // Asigna '' si se selecciona el valor por defecto
+    const handleYearChange = (e) => setSelectedYear(e.target.value || ''); // Asigna '' si se selecciona el valor por defecto
 
     useEffect(() => {
-
         const filterQuotes = () => {
-
             let filtered = quotes;
 
             if (searchFilter) {
-                filtered = filtered.filter((sls) => 
+                filtered = filtered.filter((sls) =>
                     sls.company?.name.toLowerCase().includes(searchFilter.toLowerCase())
-                )
+                );
             }
 
             if (selectedMonth) {
-                filtered = filtered.filter((doc) => 
-                    moment(doc.date).month() + 1 === parseInt(selectedMonth)
+                filtered = filtered.filter((quote) =>
+                    moment(quote.date).month() + 1 === parseInt(selectedMonth)
                 );
             }
 
             if (selectedYear) {
-                filtered = filtered.filter((doc) => 
-                    moment(doc.date).year() === parseInt(selectedYear)
+                filtered = filtered.filter((quote) =>
+                    moment(quote.date).year() === parseInt(selectedYear)
                 );
             }
 
             setFilteredQuotes(filtered);
-
-        }
+        };
 
         filterQuotes();
-
-    }, [ searchFilter, selectedMonth, selectedYear, quotes ])
+    }, [searchFilter, selectedMonth, selectedYear, quotes]);
 
     useEffect(() => {
         if (quotes.length > 0) {
-            setFilteredQuotes(quotes)
+            setFilteredQuotes(quotes);
         }
-    }, [quotes])
+    }, [quotes]);
 
     return (
-    
         <>
-        
             <div className='__filter_bar'>
-
-                <div style={{display: 'flex', gap: '2rem'}}>
-                
+                <div style={{ display: 'flex', gap: '2rem' }}>
                     <select className='__select' onChange={(e) => handleMonthChange(e)}>
-                        <option defaultValue={''}>Filtrar por mes</option>
+                        <option value={''}>Filtrar por mes</option>
                         {months.map((month) => (
                             <option key={month.value} value={month.value}>{month.name}</option>
                         ))}
                     </select>
                     <select className='__select' onChange={(e) => handleYearChange(e)}>
-                        <option defaultValue={''}>Filtrar por año</option>
+                        <option value={''}>Filtrar por año</option>
                         {years.map((year) => (
                             <option key={year} value={year}>{year}</option>
                         ))}
                     </select>
-
                 </div>
-
                 <div className='__searchbox'>
                     <input type='text' name='search' id='search' placeholder={'Buscar'} onChange={(e) => handleSearchBar(e)} />
-                    <span><IconSearch/></span>
+                    <span><IconSearch /></span>
                 </div>
-
             </div>
 
             <div className='__table'>
-
                 <div className='__table_head'>
                     <div className='__col __col_nmb'>N°</div>
                     <div className='__col'>Razón social</div>
@@ -107,23 +95,17 @@ function Table() {
                 <div className='__table_body'>
                     {filteredQuotes.length > 0 ? (
                         <>
-                            {filteredQuotes.map((quote, iq) => (
-                                <Row key={iq} number={iq+1} code={quote.code} company={quote.company} price={quote.total} date={quote.date} />
+                            {filteredQuotes.map((quote, index) => (
+                                <Row key={index} number={index + 1} code={quote.code} company={quote.company} price={quote.total} date={quote.date} />
                             ))}
                         </>
                     ) : (
-                        <>
-                            <div style={{width: '100%', height: '60px', display: 'grid', placeItems: 'center'}}>No hay datos aún</div>
-                        </>
+                        <div style={{ width: '100%', height: '60px', display: 'grid', placeItems: 'center' }}>No hay datos aún</div>
                     )}
                 </div>
-
             </div>
-        
         </>
-    
-    )
-
+    );
 }
 
-export default Table
+export default Table;
