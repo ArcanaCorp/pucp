@@ -15,7 +15,6 @@ import DocumentsView from "./view/DocumentsView";
 import OrdersView from "./view/OrdersView";
 import QuotesView from "./view/QuotesView";
 import SalesView from "./view/SalesView";
-import HistoryView from "./view/HistoryView";
 import ErrorScreen from "./screens/ErrorScreen";
 
 import './static/css/global.css'
@@ -66,10 +65,6 @@ const router = createBrowserRouter([
             {
                 path: '/dashboard/sales',
                 element: <SalesView/>
-            },
-            {
-                path: '/dashboard/history',
-                element: <HistoryView/>
             }
         ]
     }
